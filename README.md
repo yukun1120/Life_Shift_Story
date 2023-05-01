@@ -1,24 +1,84 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション名
+ Life Shift Story
 
-Things you may want to cover:
+# アプリケーション概要
 
-* Ruby version
+終わりを思い描き今を生きる。幸せな人生を実現するアプリ。
 
-* System dependencies
+# URL 
 
-* Configuration
+# テスト用アカウント
 
-* Database creation
+# 利用方法
+## 価値観
+1. ログインページにて新規登録を行う
+1. 「作成」ボタンから価値観の名前とその内容を入力する
+1. 
+## 習慣
 
-* Database initialization
+## 今日の良かったこと
 
-* How to run the test suite
+## 日記
 
-* Services (job queues, cache servers, search engines, etc.)
+## 名言
 
-* Deployment instructions
+## 人生log
 
-* ...
+## 絶対したい体験
+
+## いいこと共有
+
+## 寄付
+
+## お知らせ
+
+## お問い合わせフォーム
+
+# アプリケーションを作成した背景 
+
+# 洗い出した要件
+
+# 実装した機能についての画像やGIFおよびその説明
+
+
+# 実装予定の機能
+
+## 楽しみカレンダー
+
+・その月の楽しみなことだけを書いていくカレンダー
+
+## 週間日程
+
+・緊急ではないけど重要なことを書いていく週間カレンダー
+
+・楽しみカレンダーとの連携
+
+楽しみカレンダーに記入したものが週間日程の方にも反映される
+
+## チュートリアルの作成
+・このアプリの使い方の一連の流れを説明する
+→完成まではお知らせに文章として記述
+
+
+
+
+
+# データベース設計
+
+
+
+
+# 画面遷移図
+
+# 開発環境
+
+HTML/CSS/JavaScript/Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code
+
+
+# ローカルでの動作方法
+
+# 工夫したポイント
+
+作成背景：「死は平等に訪れる」というところからスタートし自分が自分自身の人生の充実をどうしたら最大化することができるのかを考え、それを具体的なアクションプランに落とし込んだ。
