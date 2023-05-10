@@ -51,10 +51,6 @@ body {
   align-items: center;
 }
 
-.main {
-  margin-left: 60px;
-}
-
 .main-1 {
   font-size: 65px;
 }
@@ -105,23 +101,25 @@ body {
 
 .content-2-right {
   width: 50%;
-  text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .c2-top-sentence{
   font-size: 30px;
-  margin: 0 0 40px 0;
+  margin: 0 0 35px 0;
 }
 
 .content-2-bottom {
-  padding: 0 10px;
-  font-size: 40px;
+  text-align: center;
+  font-size: 30px;
   color: #ffffff;
   background-color: #D25525;
   display: inline-block;
   border-radius: 30px;
+  width: 50%;
+  padding: 10px;
 }
 
 /* トップページ３ */
