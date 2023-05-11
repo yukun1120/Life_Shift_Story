@@ -1,7 +1,11 @@
 <div class="content-1">
   <div class="header">
- <div class="sessions-h"><a href="#">ログイン</a></div> 
-    <div class="registration-h"><a href="#">新規登録</a></div>
+    <div class="sessions-h">
+      <%= link_to 'ログイン', new_user_session_path %>
+    </div>
+    <div class="registrations-h">
+        <%= link_to '新規登録', new_user_registration_path %>
+    </div>
   </div>
 
   <div class="c1-body">
@@ -110,7 +114,7 @@
   </div>
   <div class="footer">
     <div class="sessions-f"><a href="#">ログイン</a></div>
-    <div class="registration-f"><a href="#">新規登録</a></div>
+    <div class="registrations-f"><a href="#">新規登録</a></div>
   </div>
 </div>
 

@@ -22,7 +22,7 @@ body {
 }
 
 .sessions-h,
-.registration-h {
+.registrations-h {
   padding: 0 10px;
   border-radius: 10px;
   position: relative;
@@ -30,7 +30,7 @@ body {
 }
 
 .sessions-h a,
-.registration-h a {
+.registrations-h a {
   text-decoration: none;
   font-size: 25px;
   color: black;
@@ -39,7 +39,7 @@ body {
   z-index: 1;
 }
 
-.registration-h {
+.registrations-h {
   margin-left: 30px;
 }
 
@@ -127,7 +127,7 @@ body {
 .content-3 {
   height: 100%;
   padding: 100px 80px;
-  background-color: #D25525;
+  background-color: #d25525;
 }
 
 .content-3-title {
@@ -263,7 +263,7 @@ body {
 }
 
 .sessions-f,
-.registration-f {
+.registrations-f {
   padding: 0 10px;
   border-radius: 10px;
   position: relative;
@@ -271,7 +271,7 @@ body {
 }
 
 .sessions-f a,
-.registration-f a {
+.registrations-f a {
   text-decoration: none;
   font-size: 25px;
   color: black;
