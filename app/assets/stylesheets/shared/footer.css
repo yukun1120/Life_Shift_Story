@@ -1,0 +1,22 @@
+/* main-footer */
+
+.h-m-footer {
+  height: 12%;
+  display: flex;
+  background-color: #fff0e4;
+}
+
+.main-content {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}
+
+.main-content a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}

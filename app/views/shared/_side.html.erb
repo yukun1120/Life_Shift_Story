@@ -1,0 +1,42 @@
+<div class="home-side">
+
+    <div class="h-s-header">
+      <div class="user_name">
+        <%= link_to current_user.name, edit_user_path(current_user) %>
+      </div>
+    </div>
+
+    <div class="h-s-main">
+      <div class="h-s-m-list">
+        <a href="#">名言</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">人生log</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">楽しみカレンダー</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">週間日程</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">やりたいことリスト</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">いいこと共有</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">寄付</a>
+      </div>
+    </div>
+
+    <div class="h-s-footer">
+      <div class="h-s-f-btn">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      </div>
+      <div class="h-s-f-btn">
+        <%= link_to "マイページ", "/users/#{current_user.id}" %>
+      </div>
+    </div>
+
+  </div>
