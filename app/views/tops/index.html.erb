@@ -113,8 +113,12 @@
     <div class="c5-sentence">人格が変われば人生が変わる</div>
   </div>
   <div class="footer">
-    <div class="sessions-f"><a href="#">ログイン</a></div>
-    <div class="registrations-f"><a href="#">新規登録</a></div>
+    <div class="sessions-f">
+      <%= link_to 'ログイン', new_user_session_path %>
+    </div>
+    <div class="registrations-f">
+      <%= link_to '新規登録', new_user_registration_path %>
+    </div>
   </div>
 </div>
 

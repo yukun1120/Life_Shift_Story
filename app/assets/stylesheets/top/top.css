@@ -21,22 +21,11 @@ body {
   align-items: center;
 }
 
-.sessions-h,
-.registrations-h {
-  padding: 0 10px;
-  border-radius: 10px;
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
 .sessions-h a,
 .registrations-h a {
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: black;
-  font-weight: 500;
-  position: relative;
-  z-index: 1;
 }
 
 .registrations-h {
@@ -267,7 +256,7 @@ body {
   padding: 0 10px;
   border-radius: 10px;
   position: relative;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .sessions-f a,
@@ -275,7 +264,6 @@ body {
   text-decoration: none;
   font-size: 25px;
   color: black;
-  font-weight: 500;
   position: relative;
   z-index: 1;
 }
