@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :tops, only: :index
   resources :homes, only: :index
   resources :users, only: [:show, :edit, :update]
+  resources :values, only: :index
 
 end
