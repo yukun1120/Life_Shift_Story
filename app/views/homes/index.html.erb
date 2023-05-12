@@ -1,0 +1,105 @@
+<div class="home">
+  <div class="home-side">
+
+    <div class="h-s-header">
+      <div class="user_name">
+        <%= link_to current_user.name, edit_user_path(current_user) %>
+      </div>
+    </div>
+
+    <div class="h-s-main">
+      <div class="h-s-m-list">
+        <a href="#">名言</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">人生log</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">楽しみカレンダー</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">週間日程</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">やりたいことリスト</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">いいこと共有</a>
+      </div>
+      <div class="h-s-m-list">
+        <a href="#">寄付</a>
+      </div>
+    </div>
+
+    <div class="h-s-footer">
+      <div class="h-s-f-btn">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      </div>
+      <div class="h-s-f-btn">
+        <%= link_to "マイページ", "/users/#{current_user.id}" %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="home-main">
+
+    <div class="h-m-header">
+      <a href="#">内なる成長の勝利者</a><%#=キャッチコピー編集%>
+    </div>
+
+    <div class="h-m-main">
+      <div class="famous-quote">
+        <div class="h-m-m-title">
+          <a href="#">今日の名言</a><%#=名言一覧へ%>
+        </div>
+          <div class="h-m-m-content1">
+            <a href="#">与えよ、さらば与えられん</a><%#= 名言から読み込む%>
+          </div>
+      </div>
+      <div class="schedule">
+        <div class="h-m-m-title">９/２４(火)</div>
+        <div class="h-m-m-content2">
+          <%#= カレンダーと習慣日程から読み込む%>
+          <a href="#">仕事</a>
+          <a href="#">ディズニー</a>
+        </div>
+      </div>
+      <div class="checklist">
+        <div class="h-m-m-title">チェックリスト</div>
+        <div class="h-m-m-content3">
+
+          <div class="checkbox">
+            <%= check_box_tag (:id_name) %>
+            <%= check_box_tag (:id_name) %>
+            <%= check_box_tag (:id_name) %>
+            <%= check_box_tag (:id_name) %>
+          </div> 
+
+          <div class="content-list">
+            <div class="h-m-m-c-lists">価値観</div>
+            <div class="h-m-m-c-lists">習慣</div>
+            <div class="h-m-m-c-lists">今日良かったこと</div>
+            <div class="h-m-m-c-lists">日記</div>
+          </div>
+        </div>
+      </div> 
+    </div>
+
+    <div class="h-m-footer">
+      <div class="main-content">
+        <a href="#">価値観</a>
+      </div>
+      <div class="main-content">
+        <a href="#">習慣</a>
+      </div>
+      <div class="main-content">
+        <a href="#">今日よかったこと</a>
+      </div>
+      <div class="main-content">
+        <a href="#">日記</a>
+      </div>
+    </div>
+  </div>
+
+</div>
