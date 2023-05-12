@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   resources :homes, only: :index
   resources :users, only: [:show, :edit, :update]
   resources :values, only: :index
+  resources :habits, only: :index
+  resources :goods, only: :index
+  resources :diaries, only: :index
 
 end
