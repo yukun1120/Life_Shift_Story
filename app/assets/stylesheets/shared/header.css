@@ -1,0 +1,16 @@
+/* main-header */
+
+.h-m-header {
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff0e4;
+  border: 1px solid;
+}
+
+.h-m-header a {
+  text-decoration: none;
+  font-size: 30px;
+  color: black;
+}
