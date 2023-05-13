@@ -81,8 +81,8 @@ ActiveRecord::Schema.define(version: 2023_05_12_044912) do
   create_table "values", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
-    t.text "self_assessment", null: false
-    t.text "action", null: false
+    t.text "self_assessment"
+    t.text "action"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

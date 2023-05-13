@@ -11,12 +11,16 @@
   width: 25%;
   display: flex;
   justify-content: center;
-  align-items: center;
   border: 1px solid;
 }
 
 .main-content a {
+  height: 100%;
+  width: 100%;
   text-decoration: none;
   font-size: 18px;
   color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
