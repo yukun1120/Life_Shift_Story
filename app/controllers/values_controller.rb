@@ -16,19 +16,28 @@ class ValuesController < ApplicationController
   end
 
   def show
-    
+    @value = Value.find(params[:id])
+    @reflection.new
+    @reflections = @value.reflections.includes(:user)
   end
 
   def edit
-    
+    @value = Value.find(params[:id])
   end
 
   def update
-    
+    @value = Value.find(params[:id])
+    if @value.update(value_params)
+      redirect_to values_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    
+    value = Value.find(params[:id])
+    value.destroy
+    redirect_to values_path
   end
 
   private

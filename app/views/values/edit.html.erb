@@ -12,7 +12,7 @@
           <div class="v-container-back">
             <%= link_to "戻る", values_path %>
           </div>
-          <h3>作成</h3>
+          <h3>編集</h3>
           <%= form_with(model: @value, local: true) do |form| %>
             <%= form.text_field :title, placeholder: "価値観", class: "value-fome" %>
             <%= form.text_area :content, placeholder: "内容", class: "value-content"%>
