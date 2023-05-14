@@ -3,6 +3,10 @@
   background-color: #f49552;
   border: 1px solid;
   padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-y: auto;
 }
 
 .habits__achievement {
@@ -18,26 +22,26 @@
   overflow-y: auto;
 }
 /* arrow */
-.habit
+
 .arrow-box {
   display: flex;
   justify-content: end;
   position: relative;
 }
 
-.habit
+.habits__list
 .v-arrow {
   height: 10px;
   width: 15px;
 }
 
-.habit
+.habits__list
 .arrow-pull-down {
   width: 75px;
   display: none;
   position: absolute;
   top: -5px;
-  left: 460px;
+  left: 450px;
 }
 /* /arrow */
 
@@ -48,6 +52,10 @@
   background-color: white;
   margin-bottom: 40px;
   padding: 10px;
+}
+
+.habit-bottom {
+  display: flex;
 }
 
 .habit-item {

@@ -1,45 +1,95 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const checkboxes = document.querySelectorAll(".habit-checkbox");
-  const achievementRateElement = document.querySelector(".achievement-rate");
+// document.addEventListener("DOMContentLoaded", init);
 
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", (event) => {
-      // Ajax call to update the achieved status in the database
-      const habitId = event.target.dataset.habitId;
-      const achieved = event.target.checked;
+  function init() {
+      const checkboxes = document.querySelectorAll(".habit-checkbox");
+      const roundedNumberElement = document.getElementById("achievement-rate");
+      const userIdElement = document.querySelector(".user_name");
+      const userId = userIdElement ? userIdElement.dataset.user_id : null;
 
-      // calculate the achievement rate
+      checkboxes.forEach((checkbox) => {
+        const habitId = checkbox.dataset.habitId;
+        checkbox.checked = checkbox.dataset.check === "true";
+        checkbox.addEventListener("change", (event) => {
+          updateCheckboxState(habitId, checkbox.checked);
+          updateAchievementRate();
+        });
+      });
+
+
+    function updateCheckboxState(habitId, checked) {
+      if (userId) {
+        console.log("Sending PATCH request for habitId:", habitId, "checked:", checked);
+        fetch(`/habits/update_checkbox_state`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
+          },
+          body: JSON.stringify({ habit_id: habitId, check: checked, user_id: userId }),
+        })
+        .then(response => {
+          if (response.ok) {
+            console.log("Request successful:", response);
+          } else {
+            console.log("Request failed:", response);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log("Response data:", data);
+        })
+        .catch(error => {
+          console.log("Error during fetch:", error);
+        });
+      }
+    }
+    
+    
+
+    function updateAchievementRate() {
       const totalHabits = checkboxes.length;
       const achievedHabits = Array.from(checkboxes).filter((checkbox) => checkbox.checked).length;
       const achievementRate = (achievedHabits / totalHabits) * 100;
-      achievementRateElement.textContent = achievementRate.toFixed(1);
+      const roundedNumber = Math.round(achievementRate);
+      roundedNumberElement.textContent = roundedNumber;
+      localStorage.setItem("achievement_rate", roundedNumber);
+    }
 
-      // Add effect
-      if (achieved) {
-        event.target.parentElement.classList.add("habit--achieved");
-      } else {
-        event.target.parentElement.classList.remove("habit--achieved");
-      }
+    updateAchievementRate();
 
-      // Update the achieved status in the database
-      const csrfToken = document.querySelector("meta[name=csrf-token]").content;
-      fetch(`/habits/${habitId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-Token": csrfToken
-        },
-        body: JSON.stringify({ habit: { achieved: achieved } })
-      })
-        .then((response) => response.json())
-        .catch((error) => console.error("Error:", error));
-    });
-  });
+    function resetHabitsAtMidnight() {
+      const now = new Date();
+      const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+      const timeUntilMidnight = tomorrow - now;
 
-  // Initialize achievement rate on page load
-  const totalHabits = checkboxes.length;
-  const achievedHabits = Array.from(checkboxes).filter((checkbox) => checkbox.checked).length;
-  const achievementRate = (achievedHabits / totalHabits) * 100;
-  achievementRateElement.textContent = achievementRate.toFixed(1);
-});
+      setTimeout(() => {
+        // Save achievement rate to the server
+        if (userId) {
+          const achievementRate = localStorage.getItem("achievement_rate");
+          fetch("/habits/update_achievement_rate", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
+            },
+            body: JSON.stringify({ achievement_rate: achievementRate, user_id: userId }),
+          });
+        }
 
+        // Reset checkboxes
+        checkboxes.forEach((checkbox) => {
+          const habitId = checkbox.dataset.habit_id;
+          checkbox.checked = false;
+          updateCheckboxState(habitId, false);
+        });
+
+        updateAchievementRate();
+        resetHabitsAtMidnight();
+      }, timeUntilMidnight);
+    }
+
+    resetHabitsAtMidnight();
+
+  };
+
+window.addEventListener('load', init);

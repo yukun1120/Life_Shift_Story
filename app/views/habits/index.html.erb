@@ -9,31 +9,34 @@
     <div class="habits-main">
       <div class="habits">
         <div class="habits__achievement">
-          達成率: <span class="achievement-rate">0</span>%
+          達成率: <span id="achievement-rate">0</span>%
         </div>
         <div class="habits__list">
           <% @habits.each do |habit| %>
-            <div class="habit">
+          <div class="habit">
 
-              <div class="arrow-box">
-                <%= image_tag 'arrow.png', class: "v-arrow"%>
-                <div class="arrow-pull-down">
-                  <div class="content-post-link-p">
-                  <%= link_to '編集', edit_habit_path(habit.id), method: :get %>
-                  </div>
-                  <div class="content-post-link-p">
-                    <%= link_to '削除', habit_path(habit.id), method: :delete %>
-                  </div>
+            <div class="arrow-box">
+              <%= image_tag 'arrow.png', class: "v-arrow"%>
+              <div class="arrow-pull-down">
+                <div class="content-post-link-p">
+                <%= link_to '編集', edit_habit_path(habit.id), method: :get %>
+                </div>
+                <div class="content-post-link-p">
+                  <%= link_to '削除', habit_path(habit.id), method: :delete %>
                 </div>
               </div>
+            </div>
 
-              <%#= check_box_tag "habit_achieved_#{habit.id}", habit.id, habit.achieved, class: "habit-checkbox", data: { habit_id: habit.id } %>
+            <div class="habit-bottom">
+              <%= check_box_tag "habit_check_#{habit.id}", habit.id, habit.check, class: "habit-checkbox", data: { habit_id: habit.id, check: habit.check } %>
+
 
               <div class="habit-item">
                 <%= habit.item %>
               </div>
-              
             </div>
+
+          </div>
           <% end %>
         </div>
       </div>

@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2023_05_13_063737) do
 
   create_table "habits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "item", null: false
+    t.integer "achieved"
+    t.boolean "check"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,7 +1,7 @@
 <div class="home-side">
 
     <div class="h-s-header">
-      <div class="user_name">
+      <div class="user_name" data-user-id="<%= current_user.id %>">
         <%= link_to current_user.name, edit_user_path(current_user) %>
       </div>
     </div>
