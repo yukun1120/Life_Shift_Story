@@ -11,8 +11,6 @@ class HabitsController < ApplicationController
 
   def create
     @habit = Habit.new(habit_params)
-    @habit.achieved = params[:habit][:achieved] # achievedの値を設定する
-    @habit.check = params[:habit][:check] # checkの値を設定する
     if @habit.valid?
       @habit.save
       redirect_to habits_path
@@ -25,9 +23,6 @@ class HabitsController < ApplicationController
   end
 
   def update
-    @habit.achieved = params[:habit][:achieved] # achievedの値を設定する
-    @habit.check = params[:habit][:check] # checkの値を設定する
-
     if @habit.update(habit_params)
       redirect_to habits_path
     else
@@ -40,25 +35,19 @@ class HabitsController < ApplicationController
     redirect_to habits_path
   end
 
-  def update_achievement_rate
-    current_user.habits.each do |habit|
-      habit.update(achieved: params[:achievement_rate])
-    end
-    head :ok
+  def update_check
+    @habit = Habit.find(params[:id])
+    @habit.update(check: params[:check])
+    render json: { success: true }
   end
 
-  def update_checkbox_state
-    habit = Habit.find_by(id: params[:habit_id], user_id: params[:user_id])
-    if habit
-      # check = ActiveRecord::Type::Boolean.new.cast(params[:check])
-      check = params[:check] == 'true'
-      habit.update(check: check)
-      render json: { status: 'success', message: 'Updated checkbox state' }
-    else
-      render json: { status: 'error', message: 'Habit not found' }, status: 404
-    end
+  def save_achievement
+    @habit = Habit.find(params[:id])
+    @habit.update(achieved: params[:achieved])
+    render json: { success: true }
   end
-  
+
+
   
   private
   

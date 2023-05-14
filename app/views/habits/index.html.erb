@@ -6,12 +6,12 @@
 
     <%= render "shared/header"%>
 
-    <div class="habits-main">
+    <div class="habits-main" data-habits="<%= @habits.to_json %>">
       <div class="habits">
         <div class="habits__achievement">
           達成率: <span id="achievement-rate">0</span>%
         </div>
-        <div class="habits__list">
+        <div class="habits__list" id="habits-list">
           <% @habits.each do |habit| %>
           <div class="habit">
 
