@@ -17,8 +17,7 @@ class ValuesController < ApplicationController
 
   def show
     @value = Value.find(params[:id])
-    @reflection.new
-    @reflections = @value.reflections.includes(:user)
+    @reflection = Reflection.new
   end
 
   def edit

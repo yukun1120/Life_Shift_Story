@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_12_044912) do
+ActiveRecord::Schema.define(version: 2023_05_13_063737) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 2023_05_12_044912) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reflections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.text "self_assessment", null: false
+    t.text "action", null: false
+    t.bigint "value_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reflections_on_user_id"
+    t.index ["value_id"], name: "index_reflections_on_value_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -81,8 +92,6 @@ ActiveRecord::Schema.define(version: 2023_05_12_044912) do
   create_table "values", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
-    t.text "self_assessment"
-    t.text "action"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -93,5 +102,7 @@ ActiveRecord::Schema.define(version: 2023_05_12_044912) do
   add_foreign_key "diaries", "users"
   add_foreign_key "goods", "users"
   add_foreign_key "habits", "users"
+  add_foreign_key "reflections", "users"
+  add_foreign_key "reflections", "values"
   add_foreign_key "values", "users"
 end

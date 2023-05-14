@@ -1,15 +1,41 @@
-.new-m-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.v-show-main {
   height: 76%;
   background-color: #f49552;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
   padding: 40px;
 }
 
-.v-container {
-  height: 500px;
-  width: 800px;
+.show-value {
+  height: 100%;
+  width: 30%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.5);
+}
+
+.v-show-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0;
+}
+
+
+.v-show-content {
+  overflow: hidden;
+  overflow: scroll;
+  max-height: 100px;
+  min-height: 100px;
+  width: 100%;
+}
+
+
+.v-show-container {
+  height: 100%;
+  width: 60%;
   padding: 30px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.5);
   background-color: white;
@@ -17,7 +43,7 @@
   position: relative;
 }
 
-.v-container-back {
+.v-show-container-back {
   position: absolute;
   top: 20;
   left: 700px;
@@ -25,7 +51,7 @@
   border-radius: 20px;
 }
 
-.v-container-back a {
+.v-show-container-back a {
   color: #fff;
   border: 0;
   font-size: 18px;
@@ -35,8 +61,7 @@
   text-decoration: none;
 }
 
-
-.v-container h3 {
+.v-show-container h3 {
   margin: 0 0 20px;
   text-align: center;
   font-weight: normal;
@@ -54,13 +79,14 @@ form textarea {
   font-family: "游ゴシック", "YuGothic";
 }
 
-.value-form {
+.text_field-s {
   height: 100px;
 }
 
-.value-content {
-  height: 270px;
+.text_field-a {
+  height: 215px;
 }
+
 
 form input[type="submit"] {
   background-color: #f49552;
@@ -71,4 +97,3 @@ form input[type="submit"] {
   height: 100%;
   width: 100%;
 }
-

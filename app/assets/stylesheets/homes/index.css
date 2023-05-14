@@ -19,7 +19,7 @@
   height: 76%;
   background-color: #f49552;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border: 1px solid;
   padding: 40px;
 }
@@ -38,7 +38,7 @@
 
 /* famous-quote */
 .famous-quote {
-  height: 100%;
+  height: calc(100% - (40px * 2));
   flex: 2;
   margin: 40px;
   border-radius: 20px;
@@ -54,7 +54,7 @@
 
 /* schedule */
 .schedule {
-  height: 100%;
+  height: calc(100% - (40px * 2));
   flex: 1;
   margin: 40px;
   border-radius: 20px;
@@ -72,7 +72,7 @@
 
 /* checklist */
 .checklist {
-  height: 100%;
+  height: calc(100% - (40px * 2));
   flex: 1;
   margin: 40px;
   border-radius: 20px;

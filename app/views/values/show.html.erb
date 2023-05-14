@@ -1,0 +1,46 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main">
+
+    <%= render "shared/header"%>
+
+    <div class="v-show-main">
+
+      <div class="show-value">
+        <h3 class='v-show-title'>
+          <%= @value.title %>
+        </h3>
+        <div class='v-show-content'>
+          <%= @value.content %>
+        </div>
+      </div>
+
+      <div class="v-show-container">
+        <div class="v-show-container-back">
+          <%#= link_to "戻る", values_path %>
+        </div>
+        <h3>作成</h3>
+        <%= form_with(model: [@value, @reflection], local: true) do |f|%>
+          <div class="field">
+            <%= f.label :self_assessment, "自己評価" %><br />
+            <%= f.text_field :self_assessment, class: "text_field-s"%>
+          </div>
+          <div class="field">
+            <%= f.label :action, "次回へのアクションプラン" %><br />
+            <%= f.text_field :action, class: "text_field-a" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "完了"%>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>
