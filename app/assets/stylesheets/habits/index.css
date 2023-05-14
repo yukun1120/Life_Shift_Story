@@ -1,0 +1,78 @@
+.habits-main {
+  height: 76%;
+  background-color: #f49552;
+  border: 1px solid;
+  padding: 40px 60px;
+}
+
+.habits__achievement {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.habits__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+/* arrow */
+.habit
+.arrow-box {
+  display: flex;
+  justify-content: end;
+  position: relative;
+}
+
+.habit
+.v-arrow {
+  height: 10px;
+  width: 15px;
+}
+
+.habit
+.arrow-pull-down {
+  width: 75px;
+  display: none;
+  position: absolute;
+  top: -5px;
+  left: 460px;
+}
+/* /arrow */
+
+.habit {
+  height: 100px;
+  width: 470px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+.habit-item {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0;
+}
+
+
+
+.habit-create  {
+  height: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  background-color: #fff0e4;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 1px solid;
+  position: absolute;
+  top: calc(88% - 25px - 40px);
+  left: 50%;
+}

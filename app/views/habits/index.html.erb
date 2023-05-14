@@ -6,9 +6,40 @@
 
     <%= render "shared/header"%>
 
-    <div class="h-m-main">
-      
+    <div class="habits-main">
+      <div class="habits">
+        <div class="habits__achievement">
+          達成率: <span class="achievement-rate">0</span>%
+        </div>
+        <div class="habits__list">
+          <% @habits.each do |habit| %>
+            <div class="habit">
+
+              <div class="arrow-box">
+                <%= image_tag 'arrow.png', class: "v-arrow"%>
+                <div class="arrow-pull-down">
+                  <div class="content-post-link-p">
+                  <%= link_to '編集', edit_habit_path(habit.id), method: :get %>
+                  </div>
+                  <div class="content-post-link-p">
+                    <%= link_to '削除', habit_path(habit.id), method: :delete %>
+                  </div>
+                </div>
+              </div>
+
+              <%#= check_box_tag "habit_achieved_#{habit.id}", habit.id, habit.achieved, class: "habit-checkbox", data: { habit_id: habit.id } %>
+
+              <div class="habit-item">
+                <%= habit.item %>
+              </div>
+              
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
+
+    <%= link_to "習慣を作る", new_habit_path, class: "habit-create" %>
 
     <%= render "shared/footer"%>
     

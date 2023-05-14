@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :values do
     resources :reflections, only: :create
   end
-  resources :habits, only: :index
+  resources :habits
   resources :goods, only: :index
   resources :diaries, only: :index
 
