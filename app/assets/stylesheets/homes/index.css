@@ -19,8 +19,9 @@
   height: 76%;
   background-color: #f49552;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border: 1px solid;
+  padding: 40px;
 }
 
 /* 共通タイトル */
@@ -37,6 +38,7 @@
 
 /* famous-quote */
 .famous-quote {
+  height: calc(100% - (40px * 2));
   flex: 2;
   margin: 40px;
   border-radius: 20px;
@@ -52,10 +54,12 @@
 
 /* schedule */
 .schedule {
+  height: calc(100% - (40px * 2));
   flex: 1;
   margin: 40px;
   border-radius: 20px;
   background-color: #ffffff;
+
 }
 
 .h-m-m-content2 {
@@ -68,6 +72,7 @@
 
 /* checklist */
 .checklist {
+  height: calc(100% - (40px * 2));
   flex: 1;
   margin: 40px;
   border-radius: 20px;

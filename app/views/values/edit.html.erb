@@ -1,0 +1,29 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main">
+
+    <%= render "shared/header"%>
+
+    <div class="new-m-main">
+      <div class="v-contents row">
+        <div class="v-container">
+          <div class="v-container-back">
+            <%= link_to "戻る", values_path %>
+          </div>
+          <h3>編集</h3>
+          <%= form_with(model: @value, local: true) do |form| %>
+            <%= form.text_field :title, placeholder: "価値観", class: "value-fome" %>
+            <%= form.text_area :content, placeholder: "内容", class: "value-content"%>
+            <%= form.submit "完了" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>

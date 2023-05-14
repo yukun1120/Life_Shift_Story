@@ -41,17 +41,18 @@
 .h-s-m-list {
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border: 1px solid;
 }
 
 .h-s-m-list a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 20px;
   text-decoration: none;
   color: white;
-  display: inline-block;
 }
 
 /* side-footer */
@@ -72,6 +73,9 @@
 }
 
 .h-s-f-btn a {
+  display: block;
   text-decoration: none;
   color: black;
+  height: 100%;
+  width: 100%;
 }
