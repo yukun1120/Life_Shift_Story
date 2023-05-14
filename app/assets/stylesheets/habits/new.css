@@ -1,0 +1,74 @@
+.new-m-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 76%;
+  background-color: #f49552;
+  padding: 40px;
+}
+
+.v-container {
+  height: 500px;
+  width: 800px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.5);
+  background-color: white;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.v-container-back {
+  position: absolute;
+  top: 20;
+  left: 700px;
+  background-color: #f49552;
+  border-radius: 20px;
+}
+
+.v-container-back a {
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+  padding: 0 10px;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
+
+.v-container h3 {
+  margin: 0 0 20px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+  color: #666;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  margin: 5px 0 15px;
+  padding: 10px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+}
+
+.value-form {
+  height: 100px;
+}
+
+.value-content {
+  height: 270px;
+}
+
+form input[type="submit"] {
+  background-color: #f49552;
+  border-radius: 20px;
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+}
+

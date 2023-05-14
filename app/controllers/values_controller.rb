@@ -1,6 +1,6 @@
 class ValuesController < ApplicationController
   def index
-    @values = Value.includes(:user)
+    @values = current_user.values
   end
   def new
     @value = Value.new
