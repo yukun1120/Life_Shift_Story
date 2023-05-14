@@ -1,95 +1,131 @@
-// document.addEventListener("DOMContentLoaded", init);
+function pullDown() {
 
-  function init() {
-      const checkboxes = document.querySelectorAll(".habit-checkbox");
-      const roundedNumberElement = document.getElementById("achievement-rate");
-      const userIdElement = document.querySelector(".user_name");
-      const userId = userIdElement ? userIdElement.dataset.user_id : null;
+  const habitsElement = document.querySelector('.habits-main');
+  
+  function saveCheckStateToLocalStorage(habits) {
+    localStorage.setItem('habitsCheckState', JSON.stringify(habits));
+  }
 
-      checkboxes.forEach((checkbox) => {
-        const habitId = checkbox.dataset.habitId;
-        checkbox.checked = checkbox.dataset.check === "true";
-        checkbox.addEventListener("change", (event) => {
-          updateCheckboxState(habitId, checkbox.checked);
-          updateAchievementRate();
-        });
-      });
+  function getCheckStateFromLocalStorage() {
+    const savedState = localStorage.getItem('habitsCheckState');
+    return savedState ? JSON.parse(savedState) : null;
+  }
 
+  const savedHabitsCheckState = getCheckStateFromLocalStorage();
+  const habits = JSON.parse(habitsElement.dataset.habits).map(habit => {
+    const savedHabit = savedHabitsCheckState ? savedHabitsCheckState.find(saved => saved.id === habit.id) : null;
+    return { ...habit, check: savedHabit ? savedHabit.check : habit.check === 'true' };
+  });
 
-    function updateCheckboxState(habitId, checked) {
-      if (userId) {
-        console.log("Sending PATCH request for habitId:", habitId, "checked:", checked);
-        fetch(`/habits/update_checkbox_state`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
-          },
-          body: JSON.stringify({ habit_id: habitId, check: checked, user_id: userId }),
-        })
-        .then(response => {
-          if (response.ok) {
-            console.log("Request successful:", response);
-          } else {
-            console.log("Request failed:", response);
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log("Response data:", data);
-        })
-        .catch(error => {
-          console.log("Error during fetch:", error);
-        });
-      }
-    }
-    
-    
+  function updateAchievementRate() {
+    const checkedHabits = habits.filter(habit => habit.check);
+    const achievementRate = (checkedHabits.length / habits.length) * 100;
+    document.getElementById('achievement-rate').textContent = achievementRate.toFixed(0);
+  }
 
-    function updateAchievementRate() {
-      const totalHabits = checkboxes.length;
-      const achievedHabits = Array.from(checkboxes).filter((checkbox) => checkbox.checked).length;
-      const achievementRate = (achievedHabits / totalHabits) * 100;
-      const roundedNumber = Math.round(achievementRate);
-      roundedNumberElement.textContent = roundedNumber;
-      localStorage.setItem("achievement_rate", roundedNumber);
-    }
+  function onHabitCheckboxChange(e, habitId) {
+    const habit = habits.find(habit => habit.id === habitId);
+    habit.check = e.target.checked;
+
+    // データベースにチェックの変更を保存する処理
+    updateHabitCheck(habitId, habit.check);
+
+    // ここでlocalStorageにチェック状態を保存
+    saveCheckStateToLocalStorage(habits);
 
     updateAchievementRate();
+  }
 
-    function resetHabitsAtMidnight() {
-      const now = new Date();
-      const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-      const timeUntilMidnight = tomorrow - now;
+  function updateHabitCheck(habitId, isChecked) {
+    fetch(`/habits/${habitId}/update_check`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+      },
+      body: JSON.stringify({ check: isChecked })
+    });
+  }
 
-      setTimeout(() => {
-        // Save achievement rate to the server
-        if (userId) {
-          const achievementRate = localStorage.getItem("achievement_rate");
-          fetch("/habits/update_achievement_rate", {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-              "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content,
-            },
-            body: JSON.stringify({ achievement_rate: achievementRate, user_id: userId }),
-          });
-        }
+  function saveHabitAchievement(habitId, achieved) {
+    fetch(`/habits/${habitId}/save_achievement`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+      },
+      body: JSON.stringify({ achieved: achieved })
+    });
+  }
 
-        // Reset checkboxes
-        checkboxes.forEach((checkbox) => {
-          const habitId = checkbox.dataset.habit_id;
-          checkbox.checked = false;
-          updateCheckboxState(habitId, false);
-        });
+  function resetChecksAtMidnight() {
+    const now = new Date();
+    const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    const timeUntilMidnight = tomorrow - now;
 
-        updateAchievementRate();
-        resetHabitsAtMidnight();
-      }, timeUntilMidnight);
-    }
+    setTimeout(() => {
+      habits.forEach(habit => {
+        // 達成率をデータベースに保存
+        saveHabitAchievement(habit.id, habit.achieved);
 
-    resetHabitsAtMidnight();
+        // チェックと達成率をリセット
+        habit.check = false;
+        habit.achieved = 0;
 
-  };
+        // データベースのチェックをリセットする処理
+        updateHabitCheck(habit.id, habit.check);
+      });
 
-window.addEventListener('load', init);
+      // 達成率をリセット
+      updateAchievementRate();
+
+      // 画面のチェックボックスをリセット
+      renderHabits();
+
+      // 再度タイマーを設定
+      resetChecksAtMidnight();
+    }, timeUntilMidnight);
+  }
+
+  function renderHabits() {
+    const habitsList = document.getElementById('habits-list');
+    habitsList.innerHTML = '';
+
+    habits.forEach(habit => {
+      const habitDiv = document.createElement('div');
+      habitDiv.className = 'habit';
+
+      const habitCheckbox = document.createElement('input');
+      habitCheckbox.type = 'checkbox';
+      habitCheckbox.className = 'habit-checkbox';
+      habitCheckbox.checked = habit.check;
+      habitCheckbox.addEventListener('change', (e) => onHabitCheckboxChange(e, habit.id));
+      habitDiv.appendChild(habitCheckbox);
+
+      const habitItem = document.createElement('div');
+      habitItem.className = 'habit-item';
+      habitItem.textContent = habit.item;
+      habitDiv.appendChild(habitItem);
+
+      habitsList.appendChild(habitDiv);
+    });
+  }
+
+  // 初期化処理
+  function init() {
+    // 習慣リストを描画
+    renderHabits();
+
+    // 達成率を更新
+    updateAchievementRate();
+
+    // 真夜中にチェックボックスをリセット
+    resetChecksAtMidnight();
+  }
+
+  // 初期化処理を実行
+  init();
+
+}
+document.addEventListener('DOMContentLoaded', pullDown);
+

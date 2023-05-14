@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     resources :reflections, only: :create
   end
   resources :habits do
-    collection do
-      patch 'update_checkbox_state'
-      patch 'update_achievement_rate'
+    member do
+      patch 'update_check'
+      patch 'save_achievement'
     end
   end
   resources :goods, only: :index
