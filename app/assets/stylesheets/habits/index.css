@@ -1,3 +1,9 @@
+.home-main-h {
+  height: 100%;
+  width: 80%;
+  position: relative;
+}
+
 .habits-main {
   height: 76%;
   background-color: #f49552;
@@ -86,5 +92,5 @@
   border: 1px solid;
   position: absolute;
   top: calc(88% - 25px - 40px);
-  left: 50%;
+  left: calc(50% - 100px);
 }
