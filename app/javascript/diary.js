@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const titleInput = document.getElementById("diary_title");
   const contentInput = document.getElementById("diary_content");
+
+  // Check if elements exist
+  if (!titleInput || !contentInput) {
+    return;
+  }
+
   const charCounter = document.createElement("span");
   charCounter.className = "char-counter";
 
