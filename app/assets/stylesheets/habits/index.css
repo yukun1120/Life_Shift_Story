@@ -54,6 +54,12 @@
 
 .habit-bottom {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.habit-checkbox {
+  margin-right: 10px;
 }
 
 .habit-item {

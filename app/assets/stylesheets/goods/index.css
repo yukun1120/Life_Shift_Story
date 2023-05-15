@@ -1,0 +1,107 @@
+.home-main-g {
+  height: 100%;
+  width: 80%;
+  position: relative;
+}
+
+.h-m-main-good {
+  height: 76%;
+  padding: 40px 70px;
+  background-color: #f49552;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.good-main {
+  height: 100px;
+  width: 470px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 40px;
+  padding: 10px;
+
+}
+
+.value-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.good-content-i {
+  overflow: hidden;
+  overflow: scroll;
+  height: calc(100% - (10px * 2));
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.content-post-link-p a {
+  text-decoration: none;
+  color: black;
+  background-color: #fff0e4;
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 0 20px;
+}
+
+
+.arrow-box {
+  display: flex;
+  justify-content: end;
+  position: relative;
+}
+
+.v-arrow {
+  height: 10px;
+  width: 15px;
+}
+
+.good-main .arrow-pull-down {
+  width: 75px;
+  display: none;
+  position: absolute;
+  top: 15px;
+  left: 450px;
+}
+
+
+.good-tentative {
+  height: 200px;
+  width: 350px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 40px;
+}
+
+.good-info {}
+
+.good-title {}
+
+.good-content {}
+
+
+.good-create  {
+  height: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  background-color: #fff0e4;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 1px solid;
+  position: absolute;
+  top: calc(88% - 25px - 40px);
+  left: calc(50% - 100px);
+}
