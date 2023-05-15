@@ -2,13 +2,77 @@
   
   <%= render "shared/side"%>
 
-  <div class="home-main">
+  <div class="home-main-v">
 
     <%= render "shared/header"%>
 
-    <div class="h-m-main">
-      
+    <div class="h-m-main-value">
+      <% if @goods.present? %>
+
+        <% @goods.each do |good| %>
+        <div class='value-main'>
+
+          <div class="arrow-box">
+            <%= image_tag 'arrow.png', class: "v-arrow"%>
+            <div class="arrow-pull-down">
+              <div class="content-post-link-p">
+              <%= link_to '編集', edit_good_path(good.id), method: :get %>
+              </div>
+              <div class="content-post-link-p">
+                <%= link_to '削除', good_path(good.id), method: :delete %>
+              </div>
+            </div>
+          </div>
+
+          <div class='value-content-i'>
+            <%= good.good_thing %>
+          </div>
+
+         <div class="content-post">
+            <div class="content-post-link">
+              <%= link_to '振り返り', value_path(good.id), method: :get %>
+            </div>
+          </div> 
+        </div>
+
+        <% end %>
+
+      <% else %>
+        <div class="value-tentative">
+          <div class="value-info">
+            <div class="value-title">これらは例です</div>
+            <div class="value-content">自分の価値観を作ってみよう！<br>下のボタンから作成！</div>
+          </div>
+        </div>
+        <div class="value-tentative">
+          <div class="value-info">
+            <div class="value-title">主体的になる</div>
+            <div class="value-content">世の中で起こったことのすべては自分の責任である</div>
+          </div>
+        </div>
+        <div class="value-tentative">
+          <div class="value-info">
+            <div class="value-title">他者貢献</div>
+            <div class="value-content">自分なりに他者に貢献する</div>
+          </div>
+        </div>
+        <div class="value-tentative">
+          <div class="value-info">
+            <div class="value-title">感謝し幸せを感じる</div>
+            <div class="value-content">感謝し幸せを感じ良いエネルギーを振りまく</div>
+          </div>
+        </div>
+        <div class="value-tentative">
+          <div class="value-info">
+            <div class="value-title">慈悲喜捨</div>
+            <div class="value-content">他者の幸せを喜び、一緒に悲しみ、一緒に喜び、執着をすてる</div>
+          </div>
+        </div>
+      <% end %>
+
     </div>
+
+    <%= link_to "今日のいいこと", new_good_path, class: "value-create" %>
 
     <%= render "shared/footer"%>
     

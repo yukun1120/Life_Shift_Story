@@ -1,6 +1,11 @@
 function pullDown() {
 
   const habitsElement = document.querySelector('.habits-main');
+
+  // habitsElement が存在しない場合、関数を抜ける
+  if (!habitsElement) {
+    return;
+  }
   
   function saveCheckStateToLocalStorage(habits) {
     localStorage.setItem('habitsCheckState', JSON.stringify(habits));
@@ -87,29 +92,78 @@ function pullDown() {
     }, timeUntilMidnight);
   }
 
+  function addArrowEventListeners() {
+    const habitsList = document.getElementById('habits-list');
+    const pullDownButtons = habitsList.getElementsByClassName("v-arrow");
+    const pullDownButtonLists = habitsList.getElementsByClassName("arrow-pull-down");
+
+    Array.from(pullDownButtons).forEach((pullDownButton, index) => {
+      pullDownButton.addEventListener("click", function () {
+        const pullDownButtonList = pullDownButtonLists[index];
+        if (pullDownButtonList.getAttribute("style") == "display:block;") {
+          pullDownButtonList.removeAttribute("style");
+        } else {
+          pullDownButtonList.setAttribute("style", "display:block;");
+        }
+      });
+    });
+  }
+
+
   function renderHabits() {
     const habitsList = document.getElementById('habits-list');
     habitsList.innerHTML = '';
-
+  
     habits.forEach(habit => {
       const habitDiv = document.createElement('div');
       habitDiv.className = 'habit';
-
+  
+      // arrow-boxを追加
+      const arrowBox = document.createElement('div');
+      arrowBox.className = 'arrow-box';
+  
+      const arrowImg = document.createElement('img');
+      arrowImg.className = 'v-arrow';
+      arrowImg.src = '/assets/arrow.png'; // 画像ファイルのURLを適切に設定してください。
+      arrowBox.appendChild(arrowImg);
+  
+      const arrowPullDown = document.createElement('div');
+      arrowPullDown.className = 'arrow-pull-down';
+  
+      const editLink = document.createElement('div');
+      editLink.className = 'content-post-link-p';
+      editLink.innerHTML = `<a href="/habits/${habit.id}/edit" data-method="get">編集</a>`;
+      arrowPullDown.appendChild(editLink);
+  
+      const deleteLink = document.createElement('div');
+      deleteLink.className = 'content-post-link-p';
+      deleteLink.innerHTML = `<a href="/habits/${habit.id}" data-method="delete">削除</a>`;
+      arrowPullDown.appendChild(deleteLink);
+  
+      arrowBox.appendChild(arrowPullDown);
+      habitDiv.appendChild(arrowBox);
+  
+      // ここまで arrow-boxの追加
+  
       const habitCheckbox = document.createElement('input');
       habitCheckbox.type = 'checkbox';
       habitCheckbox.className = 'habit-checkbox';
       habitCheckbox.checked = habit.check;
       habitCheckbox.addEventListener('change', (e) => onHabitCheckboxChange(e, habit.id));
       habitDiv.appendChild(habitCheckbox);
-
+  
       const habitItem = document.createElement('div');
       habitItem.className = 'habit-item';
       habitItem.textContent = habit.item;
       habitDiv.appendChild(habitItem);
-
+  
       habitsList.appendChild(habitDiv);
     });
+  
+    // 描画後にarrowイベントリスナーを追加
+    addArrowEventListeners();
   }
+  
 
   // 初期化処理
   function init() {

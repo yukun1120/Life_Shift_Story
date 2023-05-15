@@ -1,0 +1,28 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main">
+
+    <%= render "shared/header"%>
+
+    <div class="new-m-main">
+      <div class="v-contents row">
+        <div class="v-container">
+          <div class="v-container-back">
+            <%= link_to "戻る", goods_path %>
+          </div>
+          <h3>今日あったいいこと</h3>
+          <%= form_with(model: @good, local: true) do |form| %>
+            <%= form.text_field :item, placeholder: "今日あったいいこと", class: "value-content"%>
+            <%= form.submit "完了" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>

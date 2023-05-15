@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       patch 'save_achievement'
     end
   end
-  resources :goods, only: :index
+  resources :goods, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :diaries, only: :index
 
 end

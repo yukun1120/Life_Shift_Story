@@ -4,6 +4,7 @@ function arrow() {
 
   Array.from(pullDownButtons).forEach((pullDownButton, index) => {
     pullDownButton.addEventListener("click", function() {
+      console.log("ok")
       const pullDownButtonList = pullDownButtonLists[index];
       if (pullDownButtonList.getAttribute("style") == "display:block;") {
         pullDownButtonList.removeAttribute("style");
@@ -14,4 +15,4 @@ function arrow() {
   });
 }
 
-window.addEventListener("load", arrow);
+document.addEventListener('DOMContentLoaded', arrow);

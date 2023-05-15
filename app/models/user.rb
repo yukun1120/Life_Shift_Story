@@ -8,5 +8,6 @@ class User < ApplicationRecord
 
   has_many :values
   has_many :habits
+  has_many :goods
 
 end

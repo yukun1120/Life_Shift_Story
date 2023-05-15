@@ -19,9 +19,9 @@
               <%= image_tag 'arrow.png', class: "v-arrow"%>
               <div class="arrow-pull-down">
                 <div class="content-post-link-p">
-                <%= link_to '編集', edit_habit_path(habit.id), method: :get %>
+                  <%= link_to '編集', edit_habit_path(habit.id), method: :get %>
                 </div>
-                <div class="content-post-link-p">
+                <div cass="content-post-link-p">
                   <%= link_to '削除', habit_path(habit.id), method: :delete %>
                 </div>
               </div>
