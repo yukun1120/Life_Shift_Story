@@ -10,6 +10,7 @@ require("../arrow");
 require("../value");
 require("../habit");
 require("../habit-back");
+require("../diary");
 
 
 

@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     end
   end
   resources :goods, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :diaries, only: :index
+  resources :diaries, only: [:index, :create, :show, :edit, :update]
 
 end
