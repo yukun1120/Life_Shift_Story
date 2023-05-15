@@ -29,14 +29,12 @@
   position: relative;
 }
 
-.habits__list
-.v-arrow {
+.habits__list .v-arrow {
   height: 10px;
   width: 15px;
 }
 
-.habits__list
-.arrow-pull-down {
+.habits__list .arrow-pull-down {
   width: 75px;
   display: none;
   position: absolute;
@@ -56,6 +54,12 @@
 
 .habit-bottom {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.habit-checkbox {
+  margin-right: 10px;
 }
 
 .habit-item {
