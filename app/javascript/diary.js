@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
   const savedDiaryDate = localStorage.getItem("diaryDate");
   const currentDate = new Date().toISOString().slice(0, 10);
 
@@ -8,29 +8,30 @@ $(document).ready(function () {
     localStorage.setItem("diaryDate", currentDate);
   }
 
-  const titleInput = $("#diary_title");
-  const contentInput = $("#diary_content");
-  const charCounter = $("<span>").addClass("char-counter");
+  const titleInput = document.getElementById("diary_title");
+  const contentInput = document.getElementById("diary_content");
+  const charCounter = document.createElement("span");
+  charCounter.className = "char-counter";
 
-  titleInput.after(charCounter);
+  titleInput.parentNode.insertBefore(charCounter, titleInput.nextSibling);
 
-  titleInput.val(localStorage.getItem("diaryTitle"));
-  contentInput.val(localStorage.getItem("diaryContent"));
+  titleInput.value = localStorage.getItem("diaryTitle") || "";
+  contentInput.value = localStorage.getItem("diaryContent") || "";
 
   function updateCharCounter() {
-    const currentLength = titleInput.val().length + contentInput.val().length;
-    charCounter.text(`${currentLength} 文字`);
+    const currentLength = contentInput.value.length;
+    charCounter.textContent = `${currentLength} 文字`;
   }
 
   updateCharCounter();
 
-  titleInput.on("input", function () {
-    localStorage.setItem("diaryTitle", titleInput.val());
+  titleInput.addEventListener("input", function () {
+    localStorage.setItem("diaryTitle", titleInput.value);
     updateCharCounter();
   });
 
-  contentInput.on("input", function () {
-    localStorage.setItem("diaryContent", contentInput.val());
+  contentInput.addEventListener("input", function () {
+    localStorage.setItem("diaryContent", contentInput.value);
     updateCharCounter();
   });
 });
