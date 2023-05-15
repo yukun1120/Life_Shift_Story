@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   end
   resources :goods, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :diaries, only: [:index, :create, :show, :edit, :update]
+  resources :famous_quotes, only: [:index, :new, :create, :edit, :update, :destroy]
 
 end

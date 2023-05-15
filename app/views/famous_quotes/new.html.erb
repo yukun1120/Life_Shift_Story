@@ -1,0 +1,28 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main">
+
+    <%= render "shared/header"%>
+
+    <div class="new-m-main">
+      <div class="good-contents row">
+        <div class="good-container">
+          <div class="good-container-back">
+            <%= link_to "戻る", famous_quotes_path %>
+          </div>
+          <h3>今日あったいいこと</h3>
+          <%= form_with(model: @famous_quote, local: true) do |form| %>
+            <%= form.text_field :phrase, placeholder: "名言", class: "value-content"%>
+            <%= form.submit "完了" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>
