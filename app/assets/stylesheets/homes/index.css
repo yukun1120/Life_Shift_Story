@@ -45,6 +45,15 @@
   background-color: #ffffff;
 }
 
+.home-famous {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 .h-m-m-content1 {
   height: calc(100% - 20px - 20px - 35px);
   display: flex;
