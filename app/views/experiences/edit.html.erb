@@ -1,0 +1,31 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main">
+
+    <%= render "shared/header"%>
+
+    <div class="new-experience-form">
+      <div class="e-contents row">
+        <div class="e-container">
+          <div class="e-container-back">
+            <%= link_to "戻る", experiences_path %>
+          </div>
+          <h3>振り返り</h3>
+          <%= form_with(model: @experience, local: true) do |form| %>
+            <%= form.text_field :title, placeholder: "タイトル", class: "experience-title" %>
+            <%= form.text_area :content, placeholder: "内容", class: "experience-content"%>
+            <%= form.collection_select(:genre_id, Genre.all, :id, :age, {}, {class:"genre-select"}) %>
+            <%= form.text_area :actionplan, placeholder: "アクションプラン", class: "experience-content"%>
+            <%= form.submit "完了" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>

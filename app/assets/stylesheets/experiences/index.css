@@ -1,0 +1,72 @@
+.home-main-e {
+  height: 100%;
+  width: 80%;
+  position: relative;
+}
+
+.rest-weeks {
+  height: 40px;
+  background-color: #f49552;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.experiences-main {
+  height: calc(76% - 40px);
+  padding: 40px 60px;
+  background-color: #f49552;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.experience {
+  height: 200px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 40px;
+  padding: 10px;
+
+}
+
+.experience-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.experience-title a {
+  text-decoration: none;
+  color: black;
+}
+
+.experience-old {
+  overflow: hidden;
+  overflow: scroll;
+  max-height: 100px;
+  min-height: 100px;
+  width: 100%;
+}
+
+.experience-create  {
+  height: 50px;
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  background-color: #fff0e4;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 1px solid;
+  position: absolute;
+  top: calc(88% - 25px - 40px);
+  left: calc(50% - 110px);
+}

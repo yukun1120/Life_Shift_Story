@@ -12,9 +12,9 @@
           <div class="good-container-back">
             <%= link_to "戻る", famous_quotes_path %>
           </div>
-          <h3>今日あったいいこと</h3>
+          <h3>名言</h3>
           <%= form_with(model: @famous_quote, local: true) do |form| %>
-            <%= form.text_field :phrase, placeholder: "名言", class: "value-content"%>
+            <%= form.text_field :phrase, placeholder: "名言を記入", class: "value-content"%>
             <%= form.submit "完了" %>
           <% end %>
         </div>

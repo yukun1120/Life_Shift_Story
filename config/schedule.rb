@@ -23,3 +23,14 @@ every 1.day, at: '12:00 am' do
   rake "goods:confirm"
 end
 
+set :environment, "production"
+
+every :day, at: '0:00am' do
+  runner "FamousQuote.update_random_quote"
+end
+
+
+
+
+
+
