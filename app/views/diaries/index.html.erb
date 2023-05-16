@@ -11,8 +11,8 @@
         <div class="d-container">
           <h3>日記を書く</h3>
           <%= form_with(model: @diary, local: true) do |form| %>
-            <%= form.text_field :title, placeholder: "タイトル", class: "value-fome" %>
-            <%= form.text_area :content, placeholder: "内容", class: "value-content"%>
+            <%= form.text_field :title, placeholder: "タイトル", class: "diary-title-index" %>
+            <%= form.text_area :content, placeholder: "内容", class: "diary-content-index"%>
             <%= form.submit "保存" %>
           <% end %>
         </div>

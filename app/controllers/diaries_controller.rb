@@ -3,6 +3,7 @@ class DiariesController < ApplicationController
 
   def index
     @diary = Diary.today_for(current_user)
+    @user = current_user
   
     if @diary
       redirect_to @diary

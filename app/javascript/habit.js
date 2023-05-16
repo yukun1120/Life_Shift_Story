@@ -124,7 +124,8 @@ function pullDown() {
   
       const arrowImg = document.createElement('img');
       arrowImg.className = 'v-arrow';
-      arrowImg.src = '/assets/arrow.png'; // 画像ファイルのURLを適切に設定してください。
+      arrowImg.src = '/assets/arrow.png'; 
+
       arrowBox.appendChild(arrowImg);
   
       const arrowPullDown = document.createElement('div');
