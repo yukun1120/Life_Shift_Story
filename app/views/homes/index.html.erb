@@ -9,18 +9,18 @@
     <div class="h-m-main">
       <div class="famous-quote">
         <div class="h-m-m-title">
-          <%= link_to "今日の名言", famous_quotes_path %>
+          <%= link_to "名言", famous_quotes_path %>
         </div>
           <div class="h-m-m-content1">
-            <% if @famous_quotes.present? %>
-              <% famous = @famous_quotes.sample %>
-                <div class='home-famous'>
-                  <%= famous.phrase %>
-                </div>
+            <% if @famous_quote.present? %>
+              <div class='home-famous'>
+                <%= @famous_quote.phrase %>
+              </div>
             <% else %>
               <div>与えよ、さらば与えられん</div>
             <% end %>
           </div>
+
       </div>
       <div class="schedule">
         <div class="h-m-m-title">９/２４(火)</div>

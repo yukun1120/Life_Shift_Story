@@ -3,6 +3,7 @@ class HomesController < ApplicationController
 
   def index
     @famous_quotes = current_user.famous_quotes
+    @famous_quote = @famous_quotes.find_by(displayed: true)
   end
 
   private
