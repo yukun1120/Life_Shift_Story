@@ -1,0 +1,46 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main-e">
+
+    <%= render "shared/header"%>
+
+    <div class="rest-weeks">
+      残りの人生: <span id="rest-weeks">0</span>週
+    </div>
+    
+    <div class="experiences-main">
+
+
+      <% if @experiences.present? %>
+
+        <% @experiences.each do |experience| %>
+        <div class='experience'>
+          <h3 class='experience-title'>
+            <%= link_to experience.title, experience_path(experience.id) %>
+          </h3>
+          <div class='experience-old'>
+            <%= experience.genre.age%>
+          </div>
+        </div>
+        <% end %>
+
+      <% else %>
+
+        <div class="experience">
+          <h3 class="experience-title">宇宙に行く</h3>
+          <div class="experience-old">35歳</div>
+        </div>
+
+      <% end %>
+
+    </div>
+
+      <%= link_to "やりたいこと追加", new_experience_path, class: "experience-create" %>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>

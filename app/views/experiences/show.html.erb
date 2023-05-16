@@ -1,0 +1,52 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main">
+
+    <%= render "shared/header"%>
+
+    <div class="e-show-main">
+
+      <div class="show-experience">
+        <div class="arrow-box">
+          <%= image_tag 'arrow.png', class: "v-arrow"%>
+          <div class="arrow-pull-down">
+            <div class="content-post-link-p">
+            <%= link_to '編集', edit_experience_path(@experience.id), method: :get %>
+            </div>
+            <div class="content-post-link-p">
+              <%= link_to '削除', experience_path(@experience.id), method: :delete %>
+            </div>
+            <div class="content-post-link-p">
+              <%= link_to '達成', experience_path(@experience.id) %><%# JavaScriptでエフェクトをかける　後で%>
+            </div>
+          </div>
+        </div>
+
+
+        <h3 class='e-show-title'>
+          <%= @experience.title %>
+        </h3>
+        <div class='e-show-content'>
+          <%= @experience.content %>
+        </div>
+        <div class='e-show-string'><%#変える%>
+          <%= @experience.genre.age %>までに達成する
+        </div>
+        <div class='e-show-content'>
+          <%= @experience.actionplan %>
+        </div>
+        <div class="e-show-back">
+            <%= link_to "戻る", experiences_path %>
+          </div>
+      </div>
+
+
+    </div>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>

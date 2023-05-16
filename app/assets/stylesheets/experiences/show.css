@@ -1,0 +1,140 @@
+.e-show-main {
+  height: 76%;
+  background-color: #f49552;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  padding: 40px;
+}
+
+.show-experience {
+  height: 100%;
+  width: 80%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.5);
+}
+
+.arrow-box {
+  display: flex;
+  justify-content: end;
+  position: relative;
+}
+
+.v-arrow {
+  height: 10px;
+  width: 15px;
+}
+
+.show-experience .arrow-pull-down {
+  width: 75px;
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 850px;
+}
+
+.e-show-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.e-show-string {
+  margin-bottom: 10px;
+
+}
+
+.e-show-back {
+  text-align: center;
+  width: 100%;
+}
+
+.e-show-back a {
+  background-color: #f49552;
+  border-radius: 20px;
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+  padding: 0 10px;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
+.e-show-content {
+  overflow: hidden;
+  overflow: scroll;
+  height: 200px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* 
+.v-show-container {
+  height: 100%;
+  width: 60%;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.5);
+  background-color: white;
+  box-sizing: border-box;
+  position: relative;
+} */
+
+/* .v-show-container-back {
+  position: absolute;
+  top: 20;
+  left: 700px;
+  background-color: #f49552;
+  border-radius: 20px;
+}
+
+.v-show-container-back a {
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+  padding: 0 10px;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
+.v-show-container h3 {
+  margin: 0 0 20px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+  color: #666;
+} */
+
+/* form input,
+form textarea {
+  width: 100%;
+  margin: 5px 0 15px;
+  padding: 10px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+} */
+
+/* .text_field-s {
+  height: 100px;
+}
+
+.text_field-a {
+  height: 215px;
+} */
+
+
+/* form input[type="submit"] {
+  background-color: #f49552;
+  border-radius: 20px;
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+} */
