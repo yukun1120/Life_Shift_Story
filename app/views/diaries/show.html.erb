@@ -8,16 +8,18 @@
 
     <div class="h-m-main-d">
 
-     <div class="v-contents row">
-        <div class="v-container">
-          <div class="v-container-back">
+     <div class="d-contents row">
+        <div class="d-container">
+          <div class="d-container-back">
             <%= link_to "編集", edit_diary_path(@diary) %>
           </div>
           <h3>今日の日記</h3>
-          <%= form_with(model: @diary, local: true) do |form| %>
-            <%= form.text_field :title, placeholder: "タイトル", class: "value-fome" %>
-            <%= form.text_area :content, placeholder: "内容", class: "value-content"%>
-          <% end %>
+          <div class="diary-title-show">
+             <%= @diary.title %>
+          </div>
+          <div class="diary-content-show">
+             <%= @diary.content %>
+          </div>
         </div>
       </div>
 

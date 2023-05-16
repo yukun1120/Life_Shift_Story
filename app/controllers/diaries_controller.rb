@@ -1,9 +1,10 @@
 class DiariesController < ApplicationController
   before_action :set_diary, only: [:show, :edit, :update]
+  before_action :check_editable, only: [:edit, :update]
+
 
   def index
     @diary = Diary.today_for(current_user)
-  
     if @diary
       redirect_to @diary
     else
@@ -13,6 +14,9 @@ class DiariesController < ApplicationController
   
 
   def show
+    if @diary.created_at.to_date != Date.today
+      redirect_to diaries_path
+    end
   end
 
   def create
@@ -44,5 +48,11 @@ class DiariesController < ApplicationController
 
   def diary_params
     params.require(:diary).permit(:title, :content).merge(user_id: current_user.id)
+  end
+
+  def check_editable
+    if @diary.created_at.to_date != Date.today
+      redirect_to @diary, alert: "過去の日記は編集できません"
+    end
   end
 end
