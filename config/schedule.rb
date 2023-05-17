@@ -26,8 +26,9 @@ end
 set :environment, "production"
 
 every :day, at: '0:00am' do
-  runner "FamousQuote.update_random_quote"
+  runner "User.find_each { |user| FamousQuote.update_random_quote_for_user(user) }"
 end
+
 
 
 
