@@ -12,5 +12,6 @@ class User < ApplicationRecord
   has_many :diaries
   has_many :famous_quotes
   has_many :experiences
+  has_many :reflections
 
 end
