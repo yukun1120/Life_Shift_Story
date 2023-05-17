@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_16_080954) do
+ActiveRecord::Schema.define(version: 2023_05_17_075051) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -133,6 +133,6 @@ ActiveRecord::Schema.define(version: 2023_05_16_080954) do
   add_foreign_key "goods", "users"
   add_foreign_key "habits", "users"
   add_foreign_key "reflections", "users"
-  add_foreign_key "reflections", "values"
+  add_foreign_key "reflections", "values", on_delete: :cascade
   add_foreign_key "values", "users"
 end

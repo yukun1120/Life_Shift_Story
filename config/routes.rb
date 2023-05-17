@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :homes, only: :index
   resources :users, only: [:show, :edit, :update]
   resources :values do
-    resources :reflections, only: :create
+    resources :reflections, only: [:create, :edit, :update ]
   end
   resources :habits do
     member do

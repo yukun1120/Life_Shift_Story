@@ -18,24 +18,35 @@
       </div>
 
       <div class="v-show-container">
-        <div class="v-show-container-back">
-          <%#= link_to "戻る", values_path %>
-        </div>
-        <h3>作成</h3>
-        <%= form_with(model: [@value, @reflection], local: true) do |f|%>
-          <div class="field">
-            <%= f.label :self_assessment, "自己評価" %><br />
-            <%= f.text_field :self_assessment, class: "text_field-s"%>
+        <% if @reflection_data.present? && @reflection_data.created_at.today? %>
+          <div class="d-container-back">
+            <%= link_to "編集", edit_value_reflection_path(@value, @reflection_data)%>
           </div>
-          <div class="field">
-            <%= f.label :action, "次回へのアクションプラン" %><br />
-            <%= f.text_field :action, class: "text_field-a" %>
+          <h3>今日の日記</h3>
+          <div class="diary-title-show">
+            <%= @reflection_data.self_assessment %>
           </div>
-          <div class="actions">
-            <%= f.submit "完了"%>
+          <div class="diary-content-show">
+            <%= @reflection_data.action %>
           </div>
+        <% else %>
+          <h3>作成</h3>
+          <%= form_with(model: [@value, Reflection.new], local: true) do |f|%>
+            <div class="field">
+              <%= f.label :self_assessment, "自己評価" %><br />
+              <%= f.text_field :self_assessment, class: "text_field-s"%>
+            </div>
+            <div class="field">
+              <%= f.label :action, "次回へのアクションプラン" %><br />
+              <%= f.text_field :action, class: "text_field-a" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "完了"%>
+            </div>
+          <% end %>
         <% end %>
       </div>
+
 
     </div>
 
