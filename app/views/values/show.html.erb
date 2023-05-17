@@ -31,7 +31,8 @@
           </div>
         <% else %>
           <h3>作成</h3>
-          <%= form_with(model: [@value, Reflection.new], local: true) do |f|%>
+          <%= form_with(model: [@value, Reflection.new], local: true, html: { class: "reflection-form", data: { value_id: @value.id } }) do |f|%>
+
             <div class="field">
               <%= f.label :self_assessment, "自己評価" %><br />
               <%= f.text_field :self_assessment, class: "text_field-s"%>

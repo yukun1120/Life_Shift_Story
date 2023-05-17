@@ -36,8 +36,12 @@
               <%= link_to '振り返り', value_path(value.id), method: :get %>
             </div>
           </div> 
-        </div>
 
+          <div class="completed-indicator" id="completion_<%= value.id %>" style="<%= 'display: block;' if value.reflections.last&.completed %>">
+            完了
+          </div>  
+
+        </div>
         <% end %>
 
       <% else %>

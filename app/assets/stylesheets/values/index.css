@@ -87,6 +87,10 @@
   padding: 0 20px;
 }
 
+.completed-indicator {
+  display: none;
+}
+
 .value-tentative {
   height: 200px;
   width: 350px;

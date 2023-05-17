@@ -1,15 +1,18 @@
 class ReflectionsController < ApplicationController
+
+
   def create
     @reflection = Reflection.new(reflection_params)
+    @reflection.completed = true
+
     if @reflection.save
-      @value = @reflection.value
-      redirect_to values_path
+        redirect_to values_path(completion: @reflection.value.id)
     else
-      @value = @reflection.value
-      render "values/show"
+        render :new
     end
   end
 
+  
   def edit
     @reflection = Reflection.find(params[:id])
   end
