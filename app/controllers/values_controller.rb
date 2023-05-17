@@ -18,9 +18,9 @@ class ValuesController < ApplicationController
   def show
     @value = Value.find(params[:id])
     @reflection = Reflection.new
-    @reflection_data = @value.reflections.select { |reflection| reflection.created_at.today? } if @value.reflections
-
+    @reflection_data = @value.reflections.select { |reflection| reflection.created_at.today? }.last
   end
+  
 
   def edit
     @value = Value.find(params[:id])
