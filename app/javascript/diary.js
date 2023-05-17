@@ -41,3 +41,4 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCharCounter();
   });
 });
+// 動作確認
