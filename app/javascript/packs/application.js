@@ -12,7 +12,6 @@ require("../habit");
 require("../habit-back");
 require("../diary");
 require("../good-back");
-require("../value-check");
 
 
 
