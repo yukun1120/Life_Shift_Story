@@ -19,12 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, at: '12:00 am' do
-  rake "goods:confirm"
-end
-
-set :environment, "production"
-
 every :day, at: '0:00am' do
   runner "User.find_each { |user| FamousQuote.update_random_quote_for_user(user) }"
 end
@@ -32,6 +26,11 @@ end
 every :day, at: '12:00am' do
   runner "Reflection.update_all(completed: false)"
 end
+
+every :day, at: '12:00am' do
+  runner "Good.update_all(confirmed: false)"
+end
+
 
 
 

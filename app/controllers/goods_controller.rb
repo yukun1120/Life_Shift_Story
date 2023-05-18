@@ -2,7 +2,7 @@ class GoodsController < ApplicationController
   before_action :set_good, only: [:edit, :update, :destroy]
 
   def index
-    @goods = current_user.goods.where(confirmed: false)
+    @goods = current_user.goods.where(confirmed: true)
   end
 
   def new
@@ -11,7 +11,7 @@ class GoodsController < ApplicationController
 
   def create
     @good = Good.new(good_params)
-    @good.confirmed = false
+    @good.confirmed = true
     if @good.valid?
       @good.save
       redirect_to goods_path
