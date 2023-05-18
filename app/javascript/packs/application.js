@@ -7,7 +7,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../arrow");
-require("../value");
+require("../value-back");
 require("../habit");
 require("../habit-back");
 require("../diary");
