@@ -13,5 +13,7 @@ class User < ApplicationRecord
   has_many :famous_quotes
   has_many :experiences
   has_many :reflections
+  has_one :life_logs
+  has_many :user
 
 end
