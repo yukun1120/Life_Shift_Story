@@ -1,0 +1,14 @@
+.home-main-ev {
+  height: 100%;
+  width: 80%;
+}
+
+.event-main-show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 76%;
+  padding: 40px 60px;
+  background-color: #f49552;
+  overflow-y: auto;
+}
