@@ -8,10 +8,10 @@ require("@rails/activestorage").start()
 require("channels")
 require("../arrow");
 require("../value-back");
-require("../habit");
 require("../habit-back");
 require("../diary");
 require("../good-back");
+require("../habits");
 
 
 

@@ -31,6 +31,11 @@ every :day, at: '12:00am' do
   runner "Good.update_all(confirmed: false)"
 end
 
+every :day, at: '0:00am' do
+  runner "Habit.reset_checks"
+end
+
+
 
 
 

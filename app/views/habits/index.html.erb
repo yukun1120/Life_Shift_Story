@@ -28,8 +28,8 @@
             </div>
 
             <div class="habit-bottom">
+            
               <%= check_box_tag "habit_check_#{habit.id}", habit.id, habit.check, class: "habit-checkbox", data: { habit_id: habit.id, check: habit.check } %>
-
               <div class="habit-item">
                 <%= habit.item %>
               </div>
