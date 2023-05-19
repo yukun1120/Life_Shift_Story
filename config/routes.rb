@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   resources :diaries, only: [:index, :create, :show, :edit, :update]
   resources :famous_quotes, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :experiences
+  resources :life_logs, only: :index
 
 end

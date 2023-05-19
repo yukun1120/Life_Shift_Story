@@ -1,0 +1,53 @@
+.home-main-l {
+  height: 100%;
+  width: 80%;
+  position: relative;
+}
+
+.h-m-main-life_log {
+  height: 76%;
+  padding: 40px 60px;
+  background-color: #f49552;
+  overflow-y: auto;
+}
+
+.log-search {
+  height: 190px;
+}
+
+.log-search input[type="submit"] {
+  border: 1px solid black;
+  color: black;
+  background-color: #fff0e4;
+  border-radius: 5px;
+
+}
+
+.log-content {
+  height: calc(100% - 190px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.log-content-left {
+  display: flex;
+  flex: 2;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 60px;
+  padding: 10px;
+}
+
+.log-content-right {
+  flex: 3;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.l-c-r-title {
+  margin-bottom: 10px;
+}

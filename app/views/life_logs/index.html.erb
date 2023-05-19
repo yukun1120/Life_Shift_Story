@@ -1,0 +1,48 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main-l">
+
+    <%= render "shared/header"%>
+
+    <div class="h-m-main-life_log">
+
+      <div class="log-search">
+        <%= form_with(url: life_logs_path, method: :get, local: true) do |f| %>
+          <%= f.text_field :keyword, placeholder: "キーワードを入力" %>
+          <%= f.date_field :date, placeholder: "日付を選択" %>
+          <%= f.submit "検索" %>
+        <% end %>
+      </div>
+
+      <div class="log-content"><%#後で中身によってスクロールできるようにする%>
+      <%#いずれデータ分析できるようにする%>
+
+        <div class="log-content-left">
+          <% @good_things.each do |good| %>
+            <div class="l-c-l-thing">
+              <%= good.good_thing %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="log-content-right">
+          <% @diaries.each do |diary| %>
+            <div class="l-c-r-title">
+              <%= diary.title %>
+            </div>
+            <div class="l-c-r-content">
+              <%= diary.content %>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>

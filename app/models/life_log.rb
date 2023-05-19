@@ -1,0 +1,3 @@
+class LifeLog < ApplicationRecord
+
+end
