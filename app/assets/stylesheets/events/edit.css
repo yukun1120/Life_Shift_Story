@@ -1,0 +1,31 @@
+.home-main-ev {
+  height: 100%;
+  width: 80%;
+}
+
+.event-main-center {
+  height: 76%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f49552;
+  padding: 40px 60px;
+}
+
+.event-main-edit {
+  display: flex;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.event-main-edit .content .content {
+  height: 200px;
+}
+
+.event-main-edit .submit .submit {
+  border: 1px solid ;
+  border-radius: 10px;
+}
+
+

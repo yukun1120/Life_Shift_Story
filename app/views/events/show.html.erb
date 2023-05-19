@@ -1,21 +1,35 @@
-<p id="notice"><%= notice %></p>
-<div class="show">
-<p>
-  <strong>タイトル</strong>
-  <%= @event.title %>
-</p>
+<div class="home">
+  
+  <%= render "shared/side"%>
 
-<p>
-  <strong>内容</strong>
-  <%= @event.content %>
-</p>
+  <div class="home-main-ev">
 
-<p>
-  <strong>日時</strong>
-  <%= @event.start_time.strftime("%m-%d") %>
-</p>
+    <%= render "shared/header"%>
 
-<%= link_to '編集', edit_event_path(@event) %>
-<%= link_to '消去',event_path(@event.id), method: :delete, data: { confirm: '本当に?' } %>
-<%= link_to '戻る', events_path %>
+    <div class="event-main-show">
+      <div class="show">
+        <p>
+          <strong>タイトル</strong>
+          <%= @event.title %>
+        </p>
+
+        <p>
+          <strong>内容</strong>
+          <%= @event.content %>
+        </p>
+
+        <p>
+          <strong>日時</strong>
+          <%= @event.start_time.strftime("%m-%d") %>
+        </p>
+
+        <%= link_to '編集', edit_event_path(@event) %>
+        <%= link_to '消去',event_path(@event.id), method: :delete, data: { confirm: '本当に?' } %>
+        <%= link_to '戻る', events_path %>
+      </div>
+    </div>
+
+    <%= render "shared/footer"%>
+
+  </div>
 </div>
