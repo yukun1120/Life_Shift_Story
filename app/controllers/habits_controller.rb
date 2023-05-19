@@ -23,10 +23,18 @@ class HabitsController < ApplicationController
   end
 
   def update
-    if @habit.update(habit_params)
-      redirect_to habits_path
-    else
-      render :edit
+    if params[:habit][:check].nil?  # check data is not sent
+      if @habit.update(item_params)
+        redirect_to habits_path
+      else
+        render :edit
+      end
+    elsif params[:habit][:item].nil? # item data is not sent
+      if @habit.update(check_params)
+        render json: @habit, status: :ok
+      else
+        render json: @habit.errors, status: :unprocessable_entity
+      end
     end
   end
 
@@ -34,20 +42,6 @@ class HabitsController < ApplicationController
     @habit.destroy
     redirect_to habits_path
   end
-
-  def update_check
-    @habit = Habit.find(params[:id])
-    @habit.update(check: params[:check])
-    render json: { success: true }
-  end
-
-  def save_achievement
-    @habit = Habit.find(params[:id])
-    @habit.update(achieved: params[:achieved])
-    render json: { success: true }
-  end
-
-
   
   private
   
@@ -56,7 +50,15 @@ class HabitsController < ApplicationController
   end
   
   def habit_params
+    params.require(:habit).permit(:item, :check).merge(user_id: current_user.id)
+  end
+  
+  def item_params
     params.require(:habit).permit(:item).merge(user_id: current_user.id)
+  end
+
+  def check_params
+    params.require(:habit).permit(:check)
   end
 
 end

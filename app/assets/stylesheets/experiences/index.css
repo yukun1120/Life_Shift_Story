@@ -14,7 +14,8 @@
 }
 
 .experiences-main {
-  height: calc(76% - 40px);
+  height: calc(76% );
+  /* ↑40をとった */
   padding: 40px 60px;
   background-color: #f49552;
   display: flex;

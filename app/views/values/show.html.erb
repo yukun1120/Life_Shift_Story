@@ -18,16 +18,16 @@
       </div>
 
       <div class="v-show-container">
-        <% if @reflection_data.present? && @reflection_data.last.created_at.today? %>
+        <% if @reflection_data.present? %>
           <div class="d-container-back">
-            <%= link_to "編集", edit_value_reflection_path(@value, @reflection_data.last) %>
+            <%= link_to "編集", edit_value_reflection_path(@value, @reflection_data) %>
           </div>
           <h3>今日の日記</h3>
           <div class="diary-title-show">
-            <%= @reflection_data.last.self_assessment %>
+            <%= @reflection_data.self_assessment %>
           </div>
           <div class="diary-content-show">
-            <%= @reflection_data.last.action %>
+            <%= @reflection_data.action %>
           </div>
         <% else %>
           <h3>作成</h3>
