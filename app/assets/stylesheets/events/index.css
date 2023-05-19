@@ -1,0 +1,56 @@
+.home-main-ev {
+  height: 100%;
+  width: 80%;
+}
+
+.event-main {
+  display: flex;
+  height: 76%;
+  padding: 40px 60px;
+  background-color: #f49552;
+  overflow-y: auto;
+}
+
+.event-left {
+  width: 360px;
+  margin-top: 45px;
+}
+
+.event-left .schedule {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+.scroll-table {
+  overflow: auto;
+  display: block;
+  max-height: 110px;
+}
+
+.table {
+  width: 100%;
+}
+
+.thead-title {
+  width: calc(100% - 70px - 70px);
+}
+
+.thead-light .time {
+  width: 66px;
+}
+
+.event-right {
+  width: calc(100% - 360px);
+  margin-top: 45px;
+}
+
+.event-content .content {
+  height: 100px;
+}
+
+.submit .event-submit{
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 5px 0;
+}
