@@ -10,7 +10,7 @@
       <% if @famous_quotes.present? %>
 
         <% @famous_quotes.each do |famous| %>
-        <div class='famous-main'>
+        <div class="famous-main">
 
           <div class="arrow-box">
             <%= image_tag 'arrow.png', class: "v-arrow"%>
@@ -24,7 +24,7 @@
             </div>
           </div>
 
-          <div class='famous-content-i'>
+          <div class="famous-content-i">
             <%= famous.phrase %>
           </div>
 
@@ -35,15 +35,14 @@
       <% else %>
         <div class="famous-tentative">
           <div class="famous-info">与えよ、さらば与えられん</div>
+        </div>
       <% end %>
 
     </div>
 
     <%= link_to "名言を作る", new_famous_quote_path, class: "famous-create" %>
 
-    
     <%= render "shared/footer"%>
-    
   </div>
   
 
