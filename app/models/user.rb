@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :experiences
   has_many :reflections
   has_one :life_logs
-  has_many :user
+  has_many :events
+  has_many :essentials
 
 end

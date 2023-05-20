@@ -1,0 +1,83 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main-es">
+
+    <%= render "shared/header"%>
+
+    <div class="essential-main">
+      <div class="essential-top">
+        <%= week_calendar events: @week_essentials.flatten do |date, items| %>
+          <% items.each do |item| %>
+            <div>
+              <% if item.is_a?(Essential) %>
+                <li><%= link_to item.title, essential_path(item) %></li>
+              <% else %>
+                <li><%= link_to item.title, event_path(item) %></li>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="essential-bottom">
+        <div class="essential-schedules">
+          <% @week_essentials.flatten.sort_by { |item| item.start_time }.each do |item| %>
+              <div class="flex-schedule">
+                  <li>
+                      <div class="time-box">
+                          <span class="start_time"><%= item.start_time.strftime("%H:%M") %></span>
+                          <span class="end_time"><%= item.end_time.strftime("%H:%M") %></span>
+                      </div>
+
+                      <div class="area">
+                          <div class="sch_box">
+                              <p class="sch_title"><%= item.title %></p>
+                              <p class="sch_tx">
+                                  <%= item.content %>
+                              </p>
+                          </div>
+                          <div class="end_point"></div>
+                      </div>
+                  </li>
+              </div>
+          <% end %>
+      </div>
+      
+        <div class="essential-schedule">
+          <%= form_with(model: @essential, local: true) do |form| %>
+
+            <div class="essential-title">
+              <div class="form-tag">タイトル</div>
+              <%= form.text_field :title %>
+            </div>
+
+
+            <div class="essential-content">
+              <div class="form-tag">内容</div>
+              <%= form.text_field :content, class:"content" %>
+            </div>
+
+            <div class="essential-time">
+              <div class="form-tag">時間</div>
+              <%= form.datetime_select :start_time %>
+            </div>
+
+            <div class="essential-time">
+              <div class="form-tag">時間</div>
+              <%= form.datetime_select :end_time %>
+            </div>
+
+            <div class="submit">
+              <%= form.submit "保存", class: "essential-submit" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= render "shared/footer"%>
+
+  </div>
+</div>

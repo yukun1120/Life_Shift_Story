@@ -1,0 +1,167 @@
+.home-main-es {
+  height: 100%;
+  width: 80%;
+}
+
+.essential-main {
+  height: 76%;
+  padding: 40px 60px;
+  background-color: #f49552;
+  overflow-y: auto;
+}
+
+.essential-top {
+  height: 131px;
+}
+
+.scrollable {
+  overflow-y: auto;
+  height: 66px;
+}
+
+
+.essential-bottom {
+  height: calc(100% - 131px);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 日付スペース */
+.day-space {
+  margin-right: 35px;
+}
+
+/* 表示 */
+.essential-schedules {
+  overflow-y: auto;
+}
+
+.flex-schedule {
+  min-width: 400px;
+  max-width: 400px;
+  margin: 0 auto 0 0;
+  box-sizing: border-box;
+}
+
+.flex-schedule li {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+
+}
+
+.flex-schedule .area {
+  padding: 10px;
+  display: block;
+  width: 100%;
+  border-left: 6px solid #fff0e4;
+}
+
+.time-box {
+  height: 164px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-schedule li .start_time {
+  display: inline-flex;
+  justify-content: flex-end;
+  flex-basis: 5em;
+  max-width: 5em;
+  margin-right: 1em;
+  margin-top: 30px;
+}
+
+.flex-schedule li .end_time {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-basis: 5em;
+  max-width: 5em;
+  margin-right: 1em;
+  margin-top: 30px;
+}
+
+.flex-schedule .sch_box {
+  position: relative;
+  min-height: 1em;
+  padding: 1em;
+  background: #fff;
+  border-radius: 6px;
+}
+
+.flex-schedule .sch_box::before {
+  content: "";
+  position: absolute;
+  left: -23px;
+  top: 20px;
+  background: #fff0e4;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.flex-schedule .end_point {
+  position: relative;
+  height: 0;
+  width: 0;
+}
+
+.flex-schedule .end_point::before {
+  content: "";
+  position: absolute;
+  left: -23px;
+  top: -30px;
+  background: #fff0e4;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.flex-schedule .sch_title {
+  font-weight: 700;
+  margin: 5px 0 16px 0;
+}
+
+.flex-schedule .sch_tx {
+  font-size: 14px;
+  font-weight: normal;
+  height: 74px;
+  margin-bottom: 0;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.essential-bottom {
+  display: flex;
+}
+
+/* 入力フォーム */
+
+.essential-schedule {
+  height: 100%;
+  width: 50%;
+}
+
+.essential-title {
+  margin-top: 10px;
+}
+
+.essential-content .content {
+  height: 130px;
+}
+
+.essential-time {
+  margin-bottom: 10px;
+}
+
+.submit .essential-submit{
+  border-radius: 10px;
+  border: 1px solid ;
+  margin: 5px 0;
+}
