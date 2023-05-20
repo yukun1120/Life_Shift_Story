@@ -20,5 +20,4 @@ Rails.application.routes.draw do
   resources :life_logs, only: :index
   resources :events
   resources :essentials
-
 end

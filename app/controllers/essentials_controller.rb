@@ -1,16 +1,23 @@
 class EssentialsController < ApplicationController
   def index
     @essentials = current_user.essentials
+    @events = current_user.events
     @essential = Essential.new
+    @day_essentials = current_user.essentials
+    @week_essentials = []
+    start_date = params[:start_date] ? Date.parse(params[:start_date]) : Date.today
+    7.times do |i|
+      day_items = (current_user.essentials.where("DATE(start_time) = ?", start_date + i.days) +
+                  current_user.events.where("DATE(start_time) = ?", start_date + i.days)).sort_by { |item| item.start_time }
+      @week_essentials << day_items
+    end
+
   end
-  
+
   def new
     @essential = Essential.new
   end
 
-  def show
-    @essential = Essential.find(params[:id])
-  end
 
   def create
     Essential.create(essential_parameter)
