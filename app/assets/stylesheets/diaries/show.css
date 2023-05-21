@@ -1,3 +1,13 @@
+.h-m-main-diary-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 76%;
+  padding: 40px 60px;
+  background-color: #f49552;
+}
+
 .new-m-main {
   display: flex;
   justify-content: center;
@@ -7,9 +17,9 @@
   padding: 40px;
 }
 
-.d-container {
+.d-container-show {
   height: 500px;
-  width: 800px;
+  width: 100%;
   padding: 30px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.5);
   background-color: white;
@@ -20,7 +30,7 @@
 .d-container-back {
   position: absolute;
   top: 20;
-  left: 700px;
+  left: 950px;
   background-color: #f49552;
   border-radius: 20px;
 }
@@ -35,24 +45,33 @@
   text-decoration: none;
 }
 
-
-.d-container h3 {
-  margin: 0 0 20px;
-  text-align: center;
-  font-weight: normal;
-  font-size: 20px;
-  color: #666;
-}
-
 .diary-title-show {
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.diary-bottom-show {
+  display: flex;
+}
+
+.diary-images-show {
+  display: flex;
+  overflow-x: auto;
+  max-width: 270px;
+  margin-right: 10px; 
 }
 
 .diary-content-show {
-  height: calc(500px - 40px - 20px - 40px - 40px);
+  max-height: 270px;
+  min-height: 270px;
+  width: 100%;
+  overflow: hidden;
+  overflow: scroll;
 }
 
 form input[type="submit"] {
@@ -65,3 +84,6 @@ form input[type="submit"] {
   width: 100%;
 }
 
+.diary-attention {
+  margin-top: 10px;
+}

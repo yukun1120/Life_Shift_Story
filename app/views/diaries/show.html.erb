@@ -8,20 +8,28 @@
 
     <div class="h-m-main-d">
 
-     <div class="d-contents row">
-        <div class="d-container">
-          <div class="d-container-back">
-            <%= link_to "編集", edit_diary_path(@diary) %>
-          </div>
-          <h3>今日の日記</h3>
-          <div class="diary-title-show">
-             <%= @diary.title %>
+      <div class="d-container-show">
+        <div class="d-container-back">
+          <%= link_to "編集", edit_diary_path(@diary) %>
+        </div>
+        <h3>今日の日記</h3>
+        <div class="diary-title-show">
+            <%= @diary.title %>
+        </div>
+        <div class="diary-bottom-show">
+          <div class="diary-images-show">
+            <% if @diary.images.attached? %>
+              <% @diary.images.each do |image| %>
+                <%= image_tag image.variant(resize: '270x270'), class: 'diary-image' %>
+              <% end %>
+            <% end %>
           </div>
           <div class="diary-content-show">
-             <%= @diary.content %>
+              <%= @diary.content %>
           </div>
         </div>
       </div>
+
 
     </div>
 

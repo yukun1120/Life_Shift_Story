@@ -21,8 +21,7 @@ class DiariesController < ApplicationController
 
   def create
     @diary = Diary.new(diary_params)
-    if @diary.valid?
-      @diary.save
+    if @diary.save
       redirect_to @diary
     else
       render :index
@@ -47,8 +46,8 @@ class DiariesController < ApplicationController
   end
 
   def diary_params
-    params.require(:diary).permit(:title, :content).merge(user_id: current_user.id)
-  end
+    params.require(:diary).permit(:title, :content, images: []).merge(user_id: current_user.id)
+  end  
 
   def check_editable
     if @diary.created_at.to_date != Date.today

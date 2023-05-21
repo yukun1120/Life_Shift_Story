@@ -12,6 +12,7 @@ require("../habit-back");
 require("../diary");
 require("../good-back");
 require("../habits");
+require("../diary-form");
 
 
 
