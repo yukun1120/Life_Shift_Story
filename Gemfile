@@ -66,9 +66,6 @@ gem 'whenever', require: false
 gem 'active_hash'
 gem "simple_calendar", "~> 2.4"
 gem 'rails-i18n'
-group :production do
-  gem 'pg'
-end
 gem "aws-sdk-s3", require: false
 group :production do
   gem 'unicorn', '5.4.1'
