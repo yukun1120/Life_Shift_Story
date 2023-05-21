@@ -8,14 +8,24 @@
 
     <div class="h-m-main-d">
 
-        <div class="d-container">
-          <h3>日記を書く</h3>
-          <%= form_with(model: @diary, local: true) do |form| %>
+      <div class="d-container">
+        <h3>日記を書く</h3>
+        <%= form_with(model: @diary, local: true) do |form| %>
             <%= form.text_field :title, placeholder: "タイトル", class: "diary-title-index" %>
-            <%= form.text_area :content, placeholder: "内容", class: "diary-content-index"%>
-            <%= form.submit "保存" %>
-          <% end %>
-        </div>
+            <div class="diary-form-m">
+                <div id="image-list" class="image-list"></div>
+                <%= form.text_area :content, placeholder: "内容", class: "diary-content-index"%>
+            </div>
+            <div class="diary-form-b">
+                <label class="form_image">
+                    <span>画像</span>
+                    <%= form.file_field :images, class: 'hidden', id: 'diary_images', multiple: true %>
+                </label>
+                <%= form.submit "保存" %>
+            </div>
+        <% end %>
+      </div>
+
 
     </div>
 

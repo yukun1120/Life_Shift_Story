@@ -6,18 +6,30 @@
 
     <%= render "shared/header"%>
 
-    <div class="h-m-main-d">
+    <div class="h-m-main-diary-edit">
 
      <div class="v-contents row">
         <div class="v-container">
           <h3>日記を編集する</h3>
           <%= form_with(model: @diary, local: true) do |form| %>
-            <%= form.text_field :title, placeholder: "タイトル", class: "value-fome" %>
-            <%= form.text_area :content, placeholder: "内容", class: "value-content"%>
-            <%= form.submit "完了" %>
-          <% end %>
+              <%= form.text_field :title, placeholder: "タイトル", class: "diary-title-index" %>
+              <div class="diary-form-m">
+                  <div id="image-list" class="image-list"></div>
+                  <%= form.text_area :content, placeholder: "内容", class: "diary-content-index"%>
+              </div>
+              <div class="diary-form-b">
+                  <label class="form_image">
+                      <span>画像</span>
+                      <%= form.file_field :images, class: 'hidden', id: 'diary_images', multiple: true %>
+                  </label>
+                  <%= form.submit "保存" %>
+              </div>
+            <% end %>
         </div>
       </div>
+
+
+      <div class="diary-attention">＊画像は変更がある場合のみ保存してください。</div>
 
     </div>
 
