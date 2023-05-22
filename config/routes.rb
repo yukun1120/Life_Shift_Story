@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root to: 'tops#index'
   devise_for :users
   resources :tops, only: :index
@@ -21,4 +22,6 @@ Rails.application.routes.draw do
   resources :life_logs, only: :index
   resources :events
   resources :essentials
+  resources :notions, only: [:index, :create, :show]
+  resources :userinquiries, only: [:index, :create]
 end

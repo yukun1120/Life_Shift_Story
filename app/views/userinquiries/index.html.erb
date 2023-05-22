@@ -14,7 +14,7 @@
           </div>
           <h3>お問い合わせフォーム</h3>
           <%= form_with(model: @userinquiry, local: true) do |form| %>
-            <%= form.text_field :title, placeholder: "内容", class: "userinquiry-fome" %>
+            <%= form.text_field :title, placeholder: "タイトル", class: "userinquiry-form" %>
             <%= form.text_area :content, placeholder: "内容", class: "userinquiry-content"%>
             <%= form.submit "送信" %>
           <% end %>
