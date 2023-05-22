@@ -1,0 +1,26 @@
+.notion-main {
+  height: 76%;
+  background-color: #f49552;
+  border: 1px solid;
+  padding: 40px;
+}
+
+.notions {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.notion-title {
+  height: 50px;
+  width: 20%;
+  overflow: auto;
+}
+
+
+.notion-content {
+  height: 100%;
+  width: 80%;
+}
+
+

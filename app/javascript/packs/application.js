@@ -13,6 +13,7 @@ require("../diary");
 require("../good-back");
 require("../habits");
 require("../diary-form");
+require("../notion");
 
 
 
