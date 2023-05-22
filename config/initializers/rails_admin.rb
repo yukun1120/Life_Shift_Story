@@ -1,5 +1,8 @@
 RailsAdmin.config do |config|
   config.asset_source = :webpacker
+  config.model 'Experience' do
+    exclude_fields :genre
+  end
 
   ### Popular gems integration
 

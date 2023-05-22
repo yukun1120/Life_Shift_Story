@@ -1,0 +1,2 @@
+class UserinquiriesController < ApplicationController
+end
