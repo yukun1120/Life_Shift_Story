@@ -1,0 +1,29 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main">
+
+    <%= render "shared/header"%>
+
+    <div class="userinquiry">
+      <div class="userin-contents row">
+        <div class="userin-container">
+          <div class="userin-container-back">
+            <%= link_to "戻る", homes_path %>
+          </div>
+          <h3>お問い合わせフォーム</h3>
+          <%= form_with(model: @userinquiry, local: true) do |form| %>
+            <%= form.text_field :title, placeholder: "内容", class: "userinquiry-fome" %>
+            <%= form.text_area :content, placeholder: "内容", class: "userinquiry-content"%>
+            <%= form.submit "送信" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>

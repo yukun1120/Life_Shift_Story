@@ -1,0 +1,27 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main">
+
+    <%= render "shared/header"%>
+
+    <div class="notion-main">
+
+      <div class="notions">
+        <% @notions.each do |notion| %>
+          <h3 class='notion-title' data-id="<%= notion.id %>">
+            <%= notion.title %>
+          </h3>
+        <% end %>
+        <div class='notion-content' id="notion-content">
+        </div>
+      </div>
+
+    </div>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>
