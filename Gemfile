@@ -78,3 +78,4 @@ end
 gem 'mail', '2.7.1'
 gem 'activeadmin'
 gem 'rails-i18n'
+gem 'config'
