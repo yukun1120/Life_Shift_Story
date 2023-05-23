@@ -24,4 +24,11 @@ Rails.application.routes.draw do
   resources :essentials
   resources :notions, only: [:index, :create, :show]
   resources :userinquiries, only: [:index, :create]
+  resources :users do
+    get :confirm_email, on: :collection
+  end
+  resources :sessions do
+    get :resend_email_confirmation, on: :member
+  end
+
 end
