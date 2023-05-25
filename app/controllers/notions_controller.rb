@@ -1,6 +1,6 @@
 class NotionsController < ApplicationController
   def index
-    @notions = Notion.all
+    @notions = Notion.all.order("created_at DESC")
   end
 
   def create
