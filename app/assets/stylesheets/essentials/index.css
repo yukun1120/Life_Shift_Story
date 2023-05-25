@@ -8,6 +8,7 @@
   padding: 40px 60px;
   background-color: #f49552;
   overflow-y: auto;
+  border: 1px solid;
 }
 
 .essential-top {
