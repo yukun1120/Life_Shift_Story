@@ -10,9 +10,11 @@
 
       <div class="notions">
         <% @notions.each do |notion| %>
+        <div class="notion-list">
           <h3 class='notion-title' data-id="<%= notion.id %>">
             <%= notion.title %>
           </h3>
+        </div>
         <% end %>
         <div class='notion-content' id="notion-content">
         </div>
