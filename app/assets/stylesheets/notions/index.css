@@ -11,6 +11,12 @@
   display: flex;
 }
 
+.notion-list {
+  display: flex;
+  flex-direction: column;
+  
+}
+
 .notion-title {
   height: 50px;
   width: 20%;

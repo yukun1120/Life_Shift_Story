@@ -13,6 +13,9 @@ module LifeShiftStory
     config.i18n.available_locales = :ja
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'stylesheets')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'javascripts')
+
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
