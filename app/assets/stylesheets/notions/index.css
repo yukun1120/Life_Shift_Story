@@ -3,30 +3,49 @@
   background-color: #f49552;
   border: 1px solid;
   padding: 40px;
+  display: flex;
 }
 
-.notions {
+.notion-background {
+  background-color: white;
+  border-radius: 20px;
   height: 100%;
   width: 100%;
   display: flex;
+  padding: 20px;
 }
 
-.notion-list {
-  display: flex;
-  flex-direction: column;
+.notion {
+  height: 100%;
+  width: 20%;
+  border-width: 0 6px 0 0 ;
+  overflow: auto;
   
 }
 
+
 .notion-title {
   height: 50px;
-  width: 20%;
+  width: 100%;
   overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: #f49552;
 }
 
 
 .notion-content {
   height: 100%;
   width: 80%;
+  padding: 20px 40px;
+  margin: 0 10px;
+  border: 1px solid;
+  border-radius: 20px;
+
 }
 
 

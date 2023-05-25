@@ -7,15 +7,15 @@
     <%= render "shared/header"%>
 
     <div class="notion-main">
-
-      <div class="notions">
-        <% @notions.each do |notion| %>
-        <div class="notion-list">
-          <h3 class='notion-title' data-id="<%= notion.id %>">
-            <%= notion.title %>
-          </h3>
+      <div class="notion-background">
+        <div class="notion">
+          <% @notions.each do |notion| %>
+            <div class='notion-title' data-id="<%= notion.id %>">
+              <%= notion.title %>
+            </div>
+          <% end %>
         </div>
-        <% end %>
+
         <div class='notion-content' id="notion-content">
         </div>
       </div>
