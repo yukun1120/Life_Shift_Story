@@ -43,6 +43,21 @@ class EssentialsController < ApplicationController
     end
   end
 
+  def fetch_schedule
+    date = Date.parse(params[:date])
+    day_items = (current_user.essentials.where("DATE(start_time) = ?", date) +
+                current_user.events.where("DATE(start_time) = ?", date)).sort_by { |item| item.start_time }
+    
+    if day_items.empty?
+      render json: { message: 'No events found for this date.' }, status: :not_found
+    else
+      render json: day_items.as_json(only: [:id, :title, :start_time, :end_time, :content]) # or use custom logic to convert your items to JSON
+    end
+  end
+
+  
+  
+
   private
 
   def essential_parameter

@@ -22,28 +22,6 @@
       </div>
 
       <div class="essential-bottom">
-        <div class="essential-schedules">
-          <% @week_essentials.flatten.sort_by { |item| item.start_time }.each do |item| %>
-              <div class="flex-schedule">
-                  <li>
-                      <div class="time-box">
-                          <span class="start_time"><%= item.start_time.strftime("%H:%M") %></span>
-                          <span class="end_time"><%= item.end_time.strftime("%H:%M") %></span>
-                      </div>
-
-                      <div class="area">
-                          <div class="sch_box">
-                              <p class="sch_title"><%= item.title %></p>
-                              <p class="sch_tx">
-                                  <%= item.content %>
-                              </p>
-                          </div>
-                          <div class="end_point"></div>
-                      </div>
-                  </li>
-              </div>
-          <% end %>
-      </div>
       
         <div class="essential-schedule">
           <%= form_with(model: @essential, local: true) do |form| %>
@@ -72,6 +50,28 @@
             <div class="submit">
               <%= form.submit "保存", class: "essential-submit" %>
             </div>
+          <% end %>
+        </div>
+        <div class="essential-schedules">
+          <% @week_essentials.flatten.sort_by { |item| item.start_time }.each do |item| %>
+              <div class="flex-schedule">
+                  <li>
+                      <div class="time-box">
+                          <span class="start_time"><%= item.start_time.strftime("%H:%M") %></span>
+                          <span class="end_time"><%= item.end_time.strftime("%H:%M") %></span>
+                      </div>
+
+                      <div class="area">
+                          <div class="sch_box">
+                              <p class="sch_title"><%= item.title %></p>
+                              <p class="sch_tx">
+                                  <%= item.content %>
+                              </p>
+                          </div>
+                          <div class="end_point"></div>
+                      </div>
+                  </li>
+              </div>
           <% end %>
         </div>
       </div>

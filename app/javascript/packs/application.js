@@ -14,6 +14,7 @@ require("../good-back");
 require("../habits");
 require("../diary-form");
 require("../notion");
+require("../week-calendar");
 
 
 
