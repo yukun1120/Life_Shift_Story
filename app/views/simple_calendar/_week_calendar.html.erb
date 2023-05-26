@@ -13,7 +13,9 @@
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><span class="day-space"><%= t('date.abbr_day_names')[day.wday] %></span><%= day.strftime("%-m/%-d") %></th>
+          <th data-day="<%= day.to_s %>">
+            <span class="day-space"><%= t('date.abbr_day_names')[day.wday] %></span><%= day.strftime("%-m/%-d") %>
+          </th>
         <% end %>
       </tr>
     </thead>
