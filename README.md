@@ -105,5 +105,5 @@ rails db:create<br>
 rails db:migrate<br>
 
 # 工夫したポイント
-・gem 'whenever'を使い24時に表示がリセットできるようにした。
+・gem 'whenever'を使い24時に表示がリセットできるようにした。<br>
 ・3つの要素を現実の具体的なアクションプランに落とし込んだ。
