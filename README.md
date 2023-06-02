@@ -97,12 +97,13 @@ HTML/CSS/JavaScript/Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code
 
 
 # ローカルでの動作方法
-git clone https://github.com/yukun1120/Life_Shift_Story
-cd Life_Shift_Story
-bundle install
-yarn install
-rails db:create
-rails db:migrate
+git clone https://github.com/yukun1120/Life_Shift_Story<br>
+cd Life_Shift_Story<br>
+bundle install<br>
+yarn install<br>
+rails db:create<br>
+rails db:migrate<br>
 
 # 工夫したポイント
 ・gem 'whenever'を使い24時に表示がリセットできるようにした。
+・3つの要素を現実の具体的なアクションプランに落とし込んだ。
