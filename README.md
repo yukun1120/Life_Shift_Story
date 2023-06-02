@@ -73,7 +73,7 @@ http://35.79.167.80/
 
 
 # 画面遷移図
-![画像の説明](images/er.png "er")
+![画像の説明](app/assets/images/er.png "画面遷移図")
 
 
 # 開発環境
