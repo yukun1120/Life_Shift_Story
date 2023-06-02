@@ -69,7 +69,7 @@ http://35.79.167.80/
 
 # データベース設計
 
-
+![画像の説明](app/assets/images/erzu.png "ER図")
 
 
 # 画面遷移図
