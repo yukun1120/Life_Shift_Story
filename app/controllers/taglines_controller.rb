@@ -1,0 +1,2 @@
+class TaglinesController < ApplicationController
+end
