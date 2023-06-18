@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   resources :notions, only: [:index, :create, :show]
   resources :userinquiries, only: [:index, :create]
   get '/fetch_schedule', to: 'essentials#fetch_schedule'
-  resources :taglines, only: [:index, :create, :edit, :update]
+  resources :taglines, only: [:index, :create]
 end
