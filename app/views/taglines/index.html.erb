@@ -6,22 +6,14 @@
 
     <%= render "shared/header"%>
 
-    <div class="h-m-main-d">
+    <div class="tagline-main">
 
-      <div class="d-container">
-        <h3></h3>
-        <%= form_with(model: @diary, local: true) do |form| %>
-            <%= form.text_field :title, placeholder: "タイトル", class: "diary-title-index" %>
-            <div class="diary-form-m">
-                <div id="image-list" class="image-list"></div>
-                <%= form.text_area :content, placeholder: "内容", class: "diary-content-index"%>
-            </div>
-            <div class="diary-form-b">
-                <label class="form_image">
-                    <span>画像</span>
-                    <%= form.file_field :images, class: 'hidden', id: 'diary_images', multiple: true %>
-                </label>
-                <%= form.submit "保存" %>
+      <div class="tagline-form">
+        <h3>キャッチコピーの入力</h3>
+        <%= form_with(model: @tagline, local: true) do |form| %>
+            <%= form.text_field :title, placeholder: "キャッチコピー", class: "tagline-title-index" %>
+            <div class="tagline-form-m">
+              <%= form.text_area :content, placeholder: "内容", class: "tagline-content-index"%>
             </div>
         <% end %>
       </div>

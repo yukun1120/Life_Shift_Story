@@ -1,4 +1,4 @@
-.h-m-main-d {
+.tagline-main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,7 @@
   border: 1px solid;
 }
 
-.d-container {
+.tagline-form {
   height: 500px;
   width: 100%;
   padding: 30px;
@@ -18,7 +18,7 @@
   position: relative;
 }
 
-.d-container-back {
+.tagline-form-back {
   position: absolute;
   top: 20;
   left: 700px;
@@ -26,7 +26,7 @@
   border-radius: 20px;
 }
 
-.d-container-back a {
+.tagline-form-back a {
   color: #fff;
   border: 0;
   font-size: 18px;
@@ -37,7 +37,7 @@
 }
 
 
-.d-container h3 {
+.tagline-form h3 {
   margin: 0 0 20px;
   text-align: center;
   font-weight: normal;
@@ -55,14 +55,14 @@ form textarea {
   font-family: "游ゴシック", "YuGothic";
 }
 
-.diary-title-index {
+.tagline-title-index {
   max-height: 40px;
   min-height: 40px;
   max-width: 100%;
   min-width: 100%;
 }
 
-.diary-content-index {
+.tagline-content-index {
   max-height: 270px;
   min-height: 270px;
   width: 100%;
@@ -70,7 +70,7 @@ form textarea {
   overflow: scroll;
 }
 
-.diary-form-m {
+.tagline-form-m {
   display: flex;
   align-items: flex-start; 
 }
@@ -82,7 +82,7 @@ form textarea {
   margin-right: 10px; 
 }
 
-.diary-form-b {
+.tagline-form-b {
   display: flex;
 }
 
@@ -114,14 +114,6 @@ form input[type="submit"] {
   flex: 6;
 }
 
-.image-list {
-  display: flex;
-  overflow-x: auto;
-}
-
-.image-element {
-  margin-right: 10px;
-}
 
 
 
