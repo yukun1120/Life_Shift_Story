@@ -167,8 +167,10 @@ ActiveRecord::Schema.define(version: 2023_06_18_140425) do
   create_table "taglines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_taglines_on_user_id"
   end
 
   create_table "userinquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -218,5 +220,6 @@ ActiveRecord::Schema.define(version: 2023_06_18_140425) do
   add_foreign_key "life_logs", "users"
   add_foreign_key "reflections", "users"
   add_foreign_key "reflections", "values"
+  add_foreign_key "taglines", "users"
   add_foreign_key "values", "users"
 end

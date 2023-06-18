@@ -21,6 +21,6 @@ class TaglinesController < ApplicationController
 
   private
   def tagline_params
-    params.require(:tagline).permit(:title, :content)
+    params.require(:tagline).permit(:title, :content).merge(user_id: current_user.id)
   end
 end
