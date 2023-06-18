@@ -1,0 +1,2 @@
+class Tagline < ApplicationRecord
+end
