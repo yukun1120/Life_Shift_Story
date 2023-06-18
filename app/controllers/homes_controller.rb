@@ -8,7 +8,7 @@ class HomesController < ApplicationController
       FamousQuote.update_random_quote_for_user(current_user)
       @famous_quote = @famous_quotes.reload.find_by(displayed: true)
     end
-    @tagline = Tagline.new
+    @tagline = Tagline.find(params[:id])
   end
 
   private
