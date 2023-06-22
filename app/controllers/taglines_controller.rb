@@ -4,7 +4,12 @@ class TaglinesController < ApplicationController
   end
 
   def create
-    Tagline.create(tagline_params)
+    @tagline = Tagline.create(tagline_params)
+    if @tagline.save
+      redirect_to homes_path
+    else
+      render :index
+    end
   end
 
   private
