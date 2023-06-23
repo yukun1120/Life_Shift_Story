@@ -2,9 +2,8 @@ class HomesController < ApplicationController
   before_action :move_to_top
 
   def index
-    #@taglines = current_user.taglines
+    @taglines = current_user.taglines
     #@tagline = @taglines
-    #修正
     @famous_quotes = current_user.famous_quotes
     @famous_quote = @famous_quotes.find_by(displayed: true)
     if @famous_quote.nil?
