@@ -1,6 +1,6 @@
     <div class="h-m-header">
       <% if @tagline.present? %>
-        <%= link_to "キャッチコピー入力", taglines_path %>
+        <%= link_to @tagline.title, taglines_path %>
       <% else %>
         <%= link_to "キャッチコピー入力", taglines_path %>
       <% end %>
