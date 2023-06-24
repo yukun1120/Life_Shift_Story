@@ -1,0 +1,58 @@
+<div class="home">
+  
+  <%= render "shared/side"%>
+
+  <div class="home-main">
+
+    <%= render "shared/header"%>
+
+    <div class="v-show-main">
+
+      <div class="show-value">
+        <h3 class='v-show-title'>
+          <%= @value.title %>
+        </h3>
+        <div class='v-show-content'>
+          <%= @value.content %>
+        </div>
+      </div>
+
+      <div class="v-show-container">
+        <% if @reflection_data.present? %>
+          <div class="d-container-back">
+            <%= link_to "編集", edit_value_reflection_path(@value, @reflection_data) %>
+          </div>
+          <h3>今日の日記</h3>
+          <div class="diary-title-show">
+            <%= @reflection_data.self_assessment %>
+          </div>
+          <div class="diary-content-show">
+            <%= @reflection_data.action %>
+          </div>
+        <% else %>
+          <h3>作成</h3>
+          <%= form_with(model: [@value, Reflection.new], local: true, html: { class: "reflection-form", data: { value_id: @value.id } }) do |f|%>
+
+            <div class="field">
+              <%= f.label :self_assessment, "自己評価" %><br />
+              <%= f.text_field :self_assessment, class: "text_field-s"%>
+            </div>
+            <div class="field">
+              <%= f.label :action, "次回へのアクションプラン" %><br />
+              <%= f.text_field :action, class: "text_field-a" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "完了"%>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+
+    </div>
+
+    <%= render "shared/footer"%>
+    
+  </div>
+
+</div>
