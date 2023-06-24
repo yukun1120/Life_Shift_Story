@@ -1,5 +1,6 @@
 class Tagline < ApplicationRecord
   belongs_to :user
+  belongs_to :home
   validates :title, :content, presence: true
 
   def self.update_random_tagline_for_user(user)
