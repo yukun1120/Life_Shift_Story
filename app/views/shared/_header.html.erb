@@ -1,3 +1,7 @@
     <div class="h-m-header">
-      <a href="#">内なる成長の勝利者</a><%#=キャッチコピー編集%>
+      <% if @tagline.present? %>
+        <%= link_to @tagline.title, taglines_path %>
+      <% else %>
+        <%= link_to "キャッチコピー入力", taglines_path %>
+      <% end %>
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_22_104318) do
+ActiveRecord::Schema.define(version: 2023_06_18_140425) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
     t.bigint "user_id", null: false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["user_id"], name: "index_essentials_on_user_id"
   end
 
-  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
     t.datetime "start_time", null: false
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "experiences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "experiences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
     t.integer "genre_id", null: false
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
-  create_table "famous_quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "famous_quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "phrase", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -110,12 +110,12 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["user_id"], name: "index_famous_quotes_on_user_id"
   end
 
-  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "good_thing", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["user_id"], name: "index_goods_on_user_id"
   end
 
-  create_table "habits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "habits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item", null: false
     t.boolean "check"
     t.bigint "user_id", null: false
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["user_id"], name: "index_habits_on_user_id"
   end
 
-  create_table "homes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "homes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "reflections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "reflections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "self_assessment", null: false
     t.text "action", null: false
     t.bigint "value_id", null: false
@@ -164,6 +164,16 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["value_id"], name: "index_reflections_on_value_id"
   end
 
+  create_table "taglines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.bigint "user_id", null: false
+    t.boolean "check"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_taglines_on_user_id"
+  end
+
   create_table "userinquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.string "content", null: false
@@ -173,7 +183,7 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.index ["user_id"], name: "index_userinquiries_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
@@ -184,11 +194,14 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "confirmation_status", default: 1, null: false
+    t.string "confirmation_token", limit: 64
+    t.datetime "expiration_date"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "values", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "values", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
     t.bigint "user_id", null: false
@@ -208,5 +221,6 @@ ActiveRecord::Schema.define(version: 2023_05_22_104318) do
   add_foreign_key "life_logs", "users"
   add_foreign_key "reflections", "users"
   add_foreign_key "reflections", "values"
+  add_foreign_key "taglines", "users"
   add_foreign_key "values", "users"
 end

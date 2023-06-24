@@ -23,6 +23,10 @@ every :day, at: '0:00am' do
   runner "User.find_each { |user| FamousQuote.update_random_quote_for_user(user) }"
 end
 
+every :day, at: '0:00am' do
+  runner "User.find_each { |user| Tagline.update_random_tagline_for_user(user) }"
+end
+
 every :day, at: '12:00am' do
   runner "Reflection.update_all(completed: false)"
 end
