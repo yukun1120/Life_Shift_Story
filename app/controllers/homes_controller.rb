@@ -2,7 +2,7 @@ class HomesController < ApplicationController
   before_action :move_to_top
 
   def index
-    @taglines = current_user.famous_quotes
+    @taglines = current_user.taglines
     @tagline = @taglines.find_by(displayed: true)
     if @tagline.nil?
       Tagline.update_random_tagine_for_user(current_user)
