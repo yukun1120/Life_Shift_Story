@@ -8,4 +8,6 @@ class Tagline < ApplicationRecord
     random_tagline = where(user: user).order("RAND()").first
     random_tagline.update!(displayed: true) if random_tagline.present?
   end
+
+  
 end
